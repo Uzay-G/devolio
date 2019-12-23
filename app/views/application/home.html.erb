@@ -1,1 +1,37 @@
-<%= image_tag "logo.png", alt: "logo", width: "150" %>
+<% provide(:title, "Home") %>
+<br>
+<div class="content">
+    <div id="home-cont">
+        <div class="intro">
+            <h1>A personal and kind community for developers</h1>
+            <p class="description">Devolio is a social space for aspiring and expert developers. We built
+            it as an alternative to websites like Hacker News or dev.to that are too focused on content instead of discussion.</p>
+            <br>
+            <p><a href="#" class="signup-btn cta">Sign up for free</a></p>
+        </div>
+        <div style="text-align: center">
+            <%= image_tag "community.svg", alt: "community", width: "300" %>
+        </div>
+    </div>
+</div>
+<h1 class="hidden">Features</h1>
+<div class="features">
+    <figure>
+        <%= image_tag "custom.svg", alt: "customization" %>
+        <figcaption>
+            <h2>Customization</h2>
+        </figcaption>
+    </figure>
+    <figure>
+        <%= image_tag "integration.svg", alt: "integration" %>
+        <figcaption>
+            <h2>Integration</h2>
+        </figcaption>
+    </figure>
+    <figure>
+        <%= image_tag "privacy.svg", alt: "" %>
+        <figcaption>
+            <h2>Privacy</h2>
+        </figcaption
+    </figure>
+</div>
