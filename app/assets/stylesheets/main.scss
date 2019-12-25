@@ -37,10 +37,16 @@ nav {
         margin-top: 4px;
         padding: 8px;
     }
+    .links { 
+        &:visited { color: inherit !important}
+    }
 }
 .signup-btn {
     background-color: #464159;
-    color: white;
+    color: white !important;
+    &:visited {
+        color:white;
+    }
 }
 #home-cont > * {
     width: 50%;
