@@ -1,6 +1,7 @@
 <nav>
     <ul>
-        <li class="left"><%= image_tag "logo.png", alt: "logo", width: "150", class: "logo" %></li>
+        <li class="left"><a href="<%= root_url %>"><%= image_tag "logo.png", alt: "logo", width: "150", class: "logo" %></a></li>
+        <li class="right"><%= link_to "Discuss", "/discuss", class: "links" %></li>
         <% if current_user %>
             <li class="right"><%= link_to "Edit Profile", edit_user_path(current_user.id), class: "links" %></li>
             <li class="right"><%= link_to "Logout", :logout, method: :post, class: "links" %></li>
@@ -12,6 +13,7 @@
 </nav>
 <div>
 <% flash.each do |message_type, message| %>
+    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
     <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>
 </div>

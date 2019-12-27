@@ -4,12 +4,21 @@
     <title><%= yield(:title) %> | Devolio</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
     <link href="https://fonts.googleapis.com/css?family=Lilita+One|Open+Sans&display=swap" rel="stylesheet">     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
       <%= render "layouts/header" %>
-      <%= yield %>
+      <div class="content">
+        <%= yield %>
+        </div>
+
+      <%= render "layouts/footer" %>
   </body>
 </html>

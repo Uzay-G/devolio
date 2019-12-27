@@ -1,17 +1,17 @@
 <% provide(:title, "Home") %>
 <br>
-<div class="content">
-    <div id="home-cont">
-        <div class="intro">
-            <h1>A personal and kind community for developers</h1>
-            <p class="description">Devolio is a social space for aspiring and expert developers. We built
-            it as an alternative to websites like Hacker News or dev.to that are too focused on content instead of discussion.</p>
-            <br>
-            <p><a href="#" class="signup-btn cta">Sign up for free</a></p>
-        </div>
-        <div style="text-align: center">
-            <%= image_tag "community.svg", alt: "community", width: "300" %>
-        </div>
+<div id="home-cont">
+    <div class="intro">
+        <h1>A personal and kind community for developers</h1>
+        <p class="description">Devolio is a social space for aspiring and expert developers. We are building it
+        as an alternative to other dev communities that we found limited developers in their creativity and discussion.
+        We want our platform to allow coders to express their innate power of creation and share it with others!</p>
+        <br>
+        <!-- <p><a href="#" class="signup-btn cta">Signup now!</a></p> -->
+        <%= render "user_zeros/new" %>
+    </div>
+    <div style="text-align: center">
+        <%= image_tag "showcase.png", alt: "community", width: "600" %>
     </div>
 </div>
 <h1 class="hidden">Features</h1>
@@ -20,19 +20,29 @@
         <%= image_tag "custom.svg", alt: "customization" %>
         <figcaption>
             <h2>Customization</h2>
+            <p>This whole community is targeted at <strong>developers</strong>.
+            And developers are creative people who love building impressive and cool projects. 
+            So, we want our platform to be not only a place for discussion and the sharing of ideas but also
+            an actual playground for creation! We will allow you to custom design your profile pages
+            and are working on an extensive documentation and api so you can interact with our data and code projects like funny bots!</p>
         </figcaption>
     </figure>
     <figure>
         <%= image_tag "integration.svg", alt: "integration" %>
         <figcaption>
             <h2>Integration</h2>
+            <p>We want users to be able to integrate their accounts on Github and other developer sites
+            with Devolio. Our servers would then interact with your profiles to automatically post updates and stats
+            on your profile page about what you're working on and your milestones.</p>
         </figcaption>
     </figure>
     <figure>
-        <%= image_tag "privacy.svg", alt: "" %>
+        <%= image_tag "privacy.svg", alt: "privacy" %>
         <figcaption>
             <h2>Privacy</h2>
+            <p>We acknowledge the quite terrifying <a href="https://www.theguardian.com/technology/2018/dec/14/facebook-privacy-problems-roundup" target="_blank" rel="noopener">privacy issues</a>
+            that have been happening on popular social media like Facebook or Instagram. This is why we want Devolio to be an open and transparent platform that does not sell its users data.
+            </p>
         </figcaption
     </figure>
 </div>
-<%= render "user_zeros/new" %>

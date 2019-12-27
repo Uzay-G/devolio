@@ -1,8 +1,10 @@
 require 'test_helper'
-
+include Sorcery::TestHelpers::Rails::Integration
+include Sorcery::TestHelpers::Rails::Controller
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
+    login_user(users(:one), login_url)
   end
 
   test "should get index" do
@@ -15,9 +17,15 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should not be able to access login restricted views" do
+    get edit_user_url(@user)
+    assert_redirected_to "/login"
+    delete user_url(@user)
+    assert_redirected_to "/login"
+  end 
   test "should create user" do
     assert_difference('User.count') do
-      post users_url, params: { user: { email: "sda2@as.com", password: "secret", password_confirmation: "secret", name: "xas"} }
+      post users_url, params: { user: { email: "sda2@as.com", password: "secret", password_confirmation: "secret", username: "xas"} }
     end
    # assert_redirected_to user_url(User.last)
   end

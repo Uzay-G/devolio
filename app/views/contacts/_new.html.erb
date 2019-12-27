@@ -1,0 +1,21 @@
+<div id="contact-section">
+<div id="contact">
+<h2>Contact Us</h2>
+<p>Send us a message if you have any feedback or if you noticed anything we should know.
+If you are interested in sponsoring our newsletter, you can notify us with this form.
+  <%= form_for Contact.new, :html => {:class => 'form-horizontal' } do |f| %>
+    <div id="flex-fields">
+      <div id="flex-field-1">
+        <%= f.text_field :name, :required => true, placeholder: "Your name" %>
+        <%= f.email_field :email, :required => true, placeholder: "Your email" %>
+      </div>
+      <div id="flex-field-2">
+        <%= f.text_area :message, :required => true, placeholder: "Your message" %>
+      </div>
+    </div>
+    <div hidden>
+      <%= f.text_field :nickname, :hint => 'Leave this field blank!' %>
+    </div>
+      <%= f.submit 'Send' %>
+  <% end %>
+</div>

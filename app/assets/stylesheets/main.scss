@@ -30,6 +30,7 @@ nav {
     font-weight: bold;
     margin: auto;
     color: #5a3d5c;
+    padding-bottom: 50px;
     li {
         display: inline-block;
     }
@@ -69,8 +70,10 @@ a {
 .cta {
     font-family: "Open Sans", sans-serif;
     font-weight: normal;
-    font-size: 20px;
-    padding: 8px;
+    width: 230px;
+    border: none;
+    font-size: 18px;
+    padding: 4px;
 }
 /*
 .features {
@@ -92,10 +95,119 @@ a {
         img {
             width: 300px;
         }
+        figcaption {
+            width: 400px;
+        }
     }
 }
 
 .hidden { display: none }
+.beta {
+    font-size: 17px;
+    font-family: "Open Sans", sans-serif;
+    transition: border-color 2s;
+    border-style: solid;
+    padding: 5px;
+    &:focus, &:hover {
+        border-color:#400082;
+    }
+
+}
+
+
+.comments {
+    margin: auto;
+    width: 60%;
+}
+.utterances {
+    margin: 0px;
+}
+
+
+#contact-section {
+    width: 80%;
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+
+}
+
+#flex-fields {
+    display: flex;
+    align-items: center
+}
+#contact {
+    text-align: left;
+    width: 60%;
+    input, textarea {
+        border: 1px solid #e0e0e0;
+        font-size: 18px;
+        padding: 5px;
+        border-radius: 4px;
+        transition: border-color 1s;
+    }
+}
+#share {
+    width: 40%;
+    text-align: right;
+
+}
+
+.fa {
+    font-size: 30px;
+    padding: 15px;
+    width: 30px;
+    color: #464159;
+    text-decoration: none;
+    transition: color 1s;
+}
+.fa:hover {
+    color: #F34573
+}
+#contact_message {
+    height: 84px;
+}
+footer {
+    background: rgb(245, 248, 251);
+    padding: 10px 0px 10px 0px
+}
+#contact input[type=submit] {
+    background: #24232d;
+    color: white;
+    padding: 6px 7px 6px 7px;
+}
+#contact input {
+    font-size: 21px;
+    margin: 5px;
+    padding: 5px;
+}   
+#contact input::placeholder {
+    color: #63707e;
+}
+
+/*flash messages */
+.alert {
+    display: block;
+    padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+    margin:auto;
+    width: 90%;
+    text-align: center;
+    font-family: "Open sans", sans-serif;
+    font-size: 20px;
+}
+.alert-notice {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+.alert-error {
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+}
 
 @media screen and (max-width: 500px) {
     #home-cont > * {
@@ -110,9 +222,13 @@ a {
         width: 100%;
         figure {
             flex-direction: column; 
-            padding: 10px;
+            padding: 30px 0px;
             width: 90%;
+            margin: auto;
             img { width: 250px; margin: auto }
+            figcaption {
+                width: 100%;
+            }
         }
     }
     .hidden {
@@ -120,4 +236,23 @@ a {
         text-align: center;
     }
     nav { margin: 0px; }
+    #new_user_zero {
+        text-align: center;
+        padding: 40px 0px;
+    }
+    .comments {
+        width: 100%;
+    }
+    #contact-section {
+        flex-direction: column;
+    }
+    #contact, #share {
+        text-align: center;
+        width: 100%;
+    }
+    
+    #flex-fields {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }

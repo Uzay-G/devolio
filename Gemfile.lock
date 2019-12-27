@@ -96,6 +96,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    mail_form (1.8.0)
+      actionmailer (>= 5.0)
+      activemodel (>= 5.0)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (0.9.2)
@@ -231,6 +234,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
+  mail_form
   minitest
   minitest-reporters
   oauth2
@@ -253,4 +257,4 @@ RUBY VERSION
    ruby 2.6.5p114
 
 BUNDLED WITH
-   2.0.2
+   2.1.2

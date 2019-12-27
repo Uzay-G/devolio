@@ -1,5 +1,6 @@
 one: 
   email: dev@olio.com
   salt: <%= salt = "asdasdastr4325234324sdfds" %>
-  name: Devo
+  username: Devo
   crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("secret", salt) %>
+  activation_state: active
