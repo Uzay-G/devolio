@@ -186,6 +186,19 @@ footer {
 }
 
 /*flash messages */
+#error_explanation {
+    display: block;
+    padding: 5px;
+    margin-bottom: 10px;
+	border: 1px solid transparent;
+    border-radius: 4px;
+    text-align: center;
+    font-family: "Open sans", sans-serif;
+    font-size: 20px;
+    color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+}
 .alert {
     display: block;
     padding: 15px;
