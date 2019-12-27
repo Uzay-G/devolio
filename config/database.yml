@@ -22,4 +22,6 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: devolio_production
+  username: devolio
+  password: <%= ENV['DEVOLIO_DATABASE_PASSWORD'] %>
