@@ -33,6 +33,7 @@ nav {
     padding-bottom: 50px;
     li {
         display: inline-block;
+        color: black !important
     }
     .right {
         margin-top: 4px;
@@ -87,7 +88,7 @@ a {
     margin: auto;
     figure {
         display: flex;
-        padding: 50px;
+        padding: 50px 0px;
         width: 100%;
         margin: auto;
         flex-wrap: wrap;
@@ -188,7 +189,9 @@ footer {
 /*flash messages */
 #error_explanation {
     display: block;
-    padding: 5px;
+    padding: 15px;
+    margin: auto;
+    width: 90%;
     margin-bottom: 10px;
 	border: 1px solid transparent;
     border-radius: 4px;
@@ -222,7 +225,8 @@ footer {
 	border-color: #ebccd1;
 }
 
-@media screen and (max-width: 500px) {
+/* ipad */
+@media screen and (max-width: 850px) {
     #home-cont > * {
         width: 100%;
         margin: auto;
@@ -231,12 +235,33 @@ footer {
         flex-direction: column;
         .description { width: 100%}
     }
+    #flex-fields {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #flex-field-1 input {
+        width: 228px;
+    }
+    #contact-section {
+        flex-direction: column;
+    }
+    #contact, #share {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+
+
+/* mobile */
+@media screen and (max-width: 500px) {
+
     .features {
         width: 100%;
         figure {
             flex-direction: column; 
             padding: 30px 0px;
-            width: 90%;
+            width: 100%;
             margin: auto;
             img { width: 250px; margin: auto }
             figcaption {
@@ -256,16 +281,9 @@ footer {
     .comments {
         width: 100%;
     }
-    #contact-section {
-        flex-direction: column;
-    }
-    #contact, #share {
-        text-align: center;
-        width: 100%;
-    }
-    
-    #flex-fields {
-        flex-wrap: wrap;
-        justify-content: center;
+
+    .preview {
+        width: 95%;
+        margin: auto;
     }
 }
