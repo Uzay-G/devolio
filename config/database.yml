@@ -22,6 +22,7 @@ test:
 
 production:
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: postgresql
   timeout: 5000
   database: devolio_production
   username: devolio
