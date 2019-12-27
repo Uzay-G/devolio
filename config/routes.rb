@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'user_zeros/create'
   #resources :user_sessions
-  #rsources :contacts
+  resources :contacts
 
  # resources :users do
    # member do
