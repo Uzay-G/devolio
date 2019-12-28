@@ -32,7 +32,14 @@ Rails.application.configure do
   config.active_storage.service = :local
   config.action_mailer.default_url_options = { host: 'localhost:3000' }  
   config.action_controller.default_url_options = { host: 'localhost:3000' }
-  
+ # config.action_mailer.delivery_method = :smtp
+ # config.action_mailer.smtp_settings = {
+  #  :authentication => :plain,
+  #  :address => "smtp.mailgun.org",
+ #   :port => 587,
+  #  :user_name => "postmaster@mg.devol.io",
+ #   :password => "a66227ccd708c5913f812a2867775b82-a9919d1f-b0713542"
+ # }
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
