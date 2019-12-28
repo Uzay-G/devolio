@@ -249,12 +249,18 @@ footer {
         text-align: center;
         width: 100%;
     }
+    .preview-div {
+        text-align: center;
+    }
+    .intro form {
+        text-align:center;
+    }
 }
 
 
 
 /* mobile */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
 
     .features {
         width: 100%;
