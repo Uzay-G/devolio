@@ -1,7 +1,4 @@
-  require 'test_helper'
-def test_login_as(user, password)
-  post "/user_sessions", params: { username: user.username, password: password }
-end
+require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
 

@@ -12,14 +12,12 @@
 
   <tbody>
     <% @users.each do |user| %>
-      <template v-show="show" v-on:click="show = !show">
       <tr>
         <td><%= user.email %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, "v-on:click": "show = !show" %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
       </tr>
-      </template>
     <% end %>
   </tbody>
 </table>

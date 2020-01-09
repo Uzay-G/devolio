@@ -4,6 +4,7 @@ require 'rails/test_help'
 require "minitest/reporters"
 Minitest::Reporters.use!
 
+
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
@@ -12,4 +13,8 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+end
+
+def test_login_as(user, password)
+  post "/user_sessions", params: { username: user.username, password: password }
 end

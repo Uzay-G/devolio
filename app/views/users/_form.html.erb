@@ -1,4 +1,6 @@
 
+<a href="https://github.com/login/oauth/authorize?scope=user&client_id=<%= ENV['GITHUB_ID'] %>">GITHUB</a>
+
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -19,9 +21,6 @@
     <%= form.email_field :email, placeholder: "Email" %>
   </div>
   <div class="contact-line"></div>
-  <div class="field">
-  <%= form.text_field :github, placeholder: "Github handle (optional)" %>
-  </div>
   <div class="field">
   <%= form.text_field :dribble, placeholder: "Dribble handle (optional)" %>
   </div>

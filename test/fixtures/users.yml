@@ -26,3 +26,12 @@ malory:
   username: ada
   crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("sedscret", salt) %>
   activation_state: active
+
+
+
+jack:
+  email: madadaal@a.com
+  salt: <%= salt = "asdasdassadadadtrdadadadadadadada4325234324sdfds" %>
+  username: jackson
+  crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("sedscret", salt) %>
+  activation_state: active

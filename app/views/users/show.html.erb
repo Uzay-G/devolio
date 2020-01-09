@@ -3,7 +3,7 @@
 <%= render 'follow_form' if logged_in? %>
 <div class='about-user'>
   <h1><%= @user.username %></h2>
-  <a class="fa fa-github" href="https://github.com/<%= @user.github %>" target="_blank" rel="noopener"></a>
+  
 </div>  
 <%= render "shared/stats" %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
