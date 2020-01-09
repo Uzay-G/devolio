@@ -77,6 +77,8 @@ GEM
     concurrent-ruby (1.1.5)
     crass (1.0.5)
     erubi (1.9.0)
+    faker (2.10.0)
+      i18n (>= 1.6, < 1.8)
     faraday (0.17.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.3)
@@ -118,6 +120,8 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
+    nokogumbo (2.0.2)
+      nokogiri (~> 1.8, >= 1.8.4)
     oauth (0.5.4)
     oauth2 (1.4.2)
       faraday (>= 0.8, < 2.0)
@@ -168,6 +172,10 @@ GEM
     ruby-progressbar (1.10.1)
     ruby_dep (1.5.0)
     rubyzip (2.0.0)
+    sanitize (5.1.0)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.8.0)
+      nokogumbo (~> 2.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.2.1)
@@ -223,6 +231,7 @@ GEM
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
+    will_paginate (3.1.8)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.2.2)
@@ -234,6 +243,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  faker
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   mail_form
@@ -243,6 +253,7 @@ DEPENDENCIES
   pg
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
+  sanitize
   sass-rails (>= 6)
   selenium-webdriver
   sitemap_generator
@@ -255,6 +266,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
+  will_paginate (~> 3.1.0)
 
 RUBY VERSION
    ruby 2.6.5p114

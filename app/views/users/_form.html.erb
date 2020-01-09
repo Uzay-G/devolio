@@ -1,3 +1,4 @@
+
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -12,24 +13,27 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
+    <%= form.text_field :username, placeholder: "Username" %>
   </div>
   <div class="field">
-    <%= form.label :email %>
-    <%= form.email_field :email %>
+    <%= form.email_field :email, placeholder: "Email" %>
+  </div>
+  <div class="contact-line"></div>
+  <div class="field">
+  <%= form.text_field :github, placeholder: "Github handle (optional)" %>
+  </div>
+  <div class="field">
+  <%= form.text_field :dribble, placeholder: "Dribble handle (optional)" %>
+  </div>
+  <div class="contact-line"></div>
+  <div class="field">
+    <%= form.password_field :password, placeholder: "Password" %>
   </div>
 
   <div class="field">
-    <%= form.label :password %><br />
-    <%= form.password_field :password %>
+    <%= form.password_field :password_confirmation, placeholder: "Password Confirmation" %>
   </div>
-
-  <div class="field">
-    <%= form.label :password_confirmation %><br />
-    <%= form.password_field :password_confirmation %>
-  </div>
-
+  <div class="contact-line"></div>
   <div class="actions">
     <%= form.submit %>
   </div>

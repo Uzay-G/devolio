@@ -30,7 +30,7 @@ nav {
     font-weight: bold;
     margin: auto;
     color: #5a3d5c;
-    padding-bottom: 50px;
+    padding-bottom: 25px;
     li {
         display: inline-block;
         color: black !important
@@ -73,8 +73,8 @@ a {
     font-weight: normal;
     width: 230px;
     border: none;
-    font-size: 18px;
-    padding: 4px;
+    font-size: 21.25px;
+    padding: 7px;
 }
 /*
 .features {
@@ -182,7 +182,7 @@ footer {
     margin: 5px;
     padding: 5px;
 }   
-#contact input::placeholder {
+input::placeholder {
     color: #63707e;
 }
 
@@ -225,6 +225,54 @@ footer {
 	border-color: #ebccd1;
 }
 
+
+.user_info {
+    margin: auto;
+    width: 60%;
+    padding: 20px 0px;
+    text-align: center;
+    input {
+        font-size: 17px;
+        font-family: "Open Sans", sans-serif;
+        transition: border-color 2s;
+        border-style: solid;
+        padding: 5px;
+        margin: 8px;
+        &:focus:not([type="submit"]), &:hover:not([type="submit"]) {
+            border-color:#464159;
+        }
+    }
+}
+.contact-line {
+	width: 60px;
+	height: 4px;
+	margin: 5px auto;
+	background: #6807f9;
+}
+
+.stats {
+    overflow: auto;
+    margin-top: 0;
+    padding: 0;
+    a {
+      float: left;
+      padding: 0 10px;
+      border-left: 1px solid gray;
+      color: gray;
+      &:first-child {
+        padding-left: 0;
+        border: 0;
+      }
+      &:hover {
+        text-decoration: none;
+        color: blue;
+      }
+    }
+    strong {
+      display: block;
+    }
+  }
+
 /* ipad */
 @media screen and (max-width: 850px) {
     #home-cont > * {
@@ -256,8 +304,6 @@ footer {
         text-align:center;
     }
 }
-
-
 
 /* mobile */
 @media screen and (max-width: 550px) {
@@ -292,4 +338,12 @@ footer {
         width: 95%;
         margin: auto;
     }
+}
+
+.about-user {
+    background-color: #202020;
+    color: white;
+    width: 300px;;
+    padding: 30px;
+    .fa { color: white; width: 30px;}
 }

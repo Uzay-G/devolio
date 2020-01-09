@@ -1,10 +1,13 @@
-require 'test_helper'
-include Sorcery::TestHelpers::Rails::Integration
-include Sorcery::TestHelpers::Rails::Controller
+  require 'test_helper'
+def test_login_as(user, password)
+  post "/user_sessions", params: { username: user.username, password: password }
+end
+
 class UsersControllerTest < ActionDispatch::IntegrationTest
+
   setup do
     @user = users(:one)
-    login_user(users(:one), login_url)
+    test_login_as(@user, "secret")
   end
 
   test "should get index" do
@@ -18,6 +21,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not be able to access login restricted views" do
+    post logout_url
     get edit_user_url(@user)
     assert_redirected_to "/login"
     delete user_url(@user)

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_26_170016) do
+ActiveRecord::Schema.define(version: 2019_12_30_014334) do
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
 
   create_table "user_zeros", force: :cascade do |t|
     t.string "email"
@@ -33,6 +43,8 @@ ActiveRecord::Schema.define(version: 2019_12_26_170016) do
     t.integer "failed_logins_count", default: 0
     t.datetime "lock_expires_at"
     t.string "unlock_token"
+    t.string "github"
+    t.string "dribble"
     t.index ["activation_token"], name: "index_users_on_activation_token"
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
     t.index ["unlock_token"], name: "index_users_on_unlock_token"

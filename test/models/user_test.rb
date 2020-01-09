@@ -52,4 +52,15 @@ class UserTest < ActiveSupport::TestCase
     @user.save
     assert_equal mixed_case_email.downcase, @user.reload.email
   end
+
+  test "should follow and unfollow a user" do
+    michael = users(:one)
+    archer  = users(:arch)
+    assert michael.following?(archer)
+    michael.unfollow(archer)
+    assert_not michael.following?(archer)
+    assert_not archer.followers.include?(michael)
+    michael.follow(archer)
+    assert michael.following?(archer)
+  end
 end
