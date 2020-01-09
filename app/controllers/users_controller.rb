@@ -104,6 +104,7 @@ class UsersController < ApplicationController
 
     def correct_user
       @user = User.find(params[:id])
+      flash[:error] = "You don't have the permissions to edit that user."
       redirect_back_or_to(root_url) unless @user == current_user
     end
 end

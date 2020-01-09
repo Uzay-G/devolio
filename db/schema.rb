@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2020_01_09_181859) do
     t.datetime "lock_expires_at"
     t.string "unlock_token"
     t.string "dribble"
+    t.string "name"
     t.index ["activation_token"], name: "index_users_on_activation_token"
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
     t.index ["unlock_token"], name: "index_users_on_unlock_token"

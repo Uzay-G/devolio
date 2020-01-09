@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   get  '/signup',  to: 'users#new'
   resources :user_zeros, only: [:new, :create]
   resources :relationships,       only: [:create, :destroy]
+
+  get "/auth/:provider/callback" => "user_sessions#create"
 end
