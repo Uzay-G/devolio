@@ -1,3 +1,4 @@
+<h3>Through the site</h2>
 <%= form_tag user_sessions_path, :method => :post do %>
     <div class="field">
       <%= text_field_tag :username, nil, placeholder: "Username" %>
@@ -10,4 +11,6 @@
     <div class="actions">
       <%= submit_tag "Login" %>
     </div>
-  <% end %>
+<% end %>
+<h3>Through an external provider</h2>
+<%= render "shared/oauth" %>

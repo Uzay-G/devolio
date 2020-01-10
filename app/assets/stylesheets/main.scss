@@ -23,6 +23,7 @@ h1, h2 {
     font-family: 'Lilita One', sans-serif;
     font-weight: 5;
 }
+
 nav {
     width: 95%;
  /*   .logo { margin-bottom: -18px;}*/
@@ -49,6 +50,9 @@ nav {
     &:visited {
         color:white;
     }
+}
+h3 {
+    font-family: "Open Sans", sans-serif;
 }
 #home-cont > * {
     width: 50%;
@@ -151,20 +155,19 @@ a {
 #share {
     width: 40%;
     text-align: right;
-
+    .fab {
+        font-size: 30px;
+        padding: 15px;
+        width: 30px;
+        color: #464159;
+        text-decoration: none;
+        transition: color 1s;
+    }
+    .fab:hover {
+        color: #F34573
+    }
 }
 
-.fa {
-    font-size: 30px;
-    padding: 15px;
-    width: 30px;
-    color: #464159;
-    text-decoration: none;
-    transition: color 1s;
-}
-.fa:hover {
-    color: #F34573
-}
 #contact_message {
     height: 84px;
 }

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'oauths/oauth'
+  get 'oauths/callback'
   get 'user_zeros/create'
   resources :user_sessions
   resources :contacts
@@ -18,5 +20,7 @@ Rails.application.routes.draw do
   resources :user_zeros, only: [:new, :create]
   resources :relationships,       only: [:create, :destroy]
 
-  get "/auth/:provider/callback" => "user_sessions#create"
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 end

@@ -4,7 +4,7 @@
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging,
 # :magic_login, :external
-Rails.application.config.sorcery.submodules = [:remember_me, :user_activation, :brute_force_protection]
+Rails.application.config.sorcery.submodules = [:remember_me, :user_activation, :brute_force_protection, :external]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
@@ -80,8 +80,12 @@ Rails.application.config.sorcery.configure do |config|
   # i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce, :slack, :line].
   # Default: `[]`
   #
-  # config.external_providers =
-
+  config.external_providers = [:github]
+  config.github.key = ENV["GITHUB_ID"]
+  config.github.secret = ENV["GITHUB_SECRET"]
+  config.github.callback_url = "http://localhost:3000/oauth/callback?provider=github"
+  config.github.scope = "user"
+  config.github.user_info_mapping = {:username => "name", :email => "email"}
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
   # Path to ca_file. By default use a internal ca-bundle.crt.
   # Default: `'path/to/ca_file'`
@@ -506,7 +510,7 @@ Rails.application.config.sorcery.configure do |config|
     # Class which holds the various external provider data for this user.
     # Default: `nil`
     #
-    # user.authentications_class =
+    user.authentications_class = Authentication
 
     # User's identifier in the `authentications` class.
     # Default: `:user_id`
