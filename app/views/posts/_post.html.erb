@@ -1,0 +1,8 @@
+<li id="post-<%= post.id %>">
+  <h2><%= post.title %></h2>
+  <span class="user"><%= link_to post.user.username, post.user %></span>
+  <span class="content"><%= post.body %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(post.created_at) %> ago.
+  </span>
+</li>

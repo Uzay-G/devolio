@@ -1,0 +1,30 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyText
+  user: one
+  title: MyString
+  created_at: <%= 10.minutes.ago %>
+  user: arch
+
+two:
+  body: MyText
+  user: two
+  title: adad
+  created_at: <%= 10.minutes.ago %>
+  user: one
+
+most_recent:
+  body: I am recent
+  user: three
+  title: No one is more recent!
+  created_at: <%= Time.zone.now %>
+  user: malory
+
+<% 30.times do |n| %>
+post_<%= n %>:
+  body: <%= Faker::Lorem.sentence(word_count: 5) %>
+  title: <%= "#{n}Heeya!" %> 
+  created_at: <%= 42.days.ago %>
+  user: one
+<% end %>

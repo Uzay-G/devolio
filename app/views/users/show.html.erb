@@ -5,6 +5,16 @@
   <h1><%= @user.username %></h2>
   <a href="https://github.com/#{@user.username}" class="fab fa-github"></a>
 </div>  
+<div class="posts">
+<% if @user.posts.any? %>
+  <h3>Posts (<%= @user.posts.count %>)</h3>
+  <ol class="posts">
+    <%= render @posts %>
+  </ol>
+  <%= will_paginate @posts %>
+<% end %>
+</div>
+
 <%= render "shared/stats" %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
