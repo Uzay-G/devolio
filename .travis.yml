@@ -1,4 +1,6 @@
 language: ruby
 cache: bundler  
-
 script: bundle exec rails assets:precompile
+install: 
+  - npm i -g yarn
+  - yarn
