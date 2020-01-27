@@ -13,7 +13,9 @@
   User.create!(username:  name,
                email: email,
                password:              password,
-               password_confirmation: password)
+               password_confirmation: password
+               activation_state: true
+               )
 end
 
 
@@ -24,4 +26,10 @@ users = User.order(:created_at).take(6)
   users.each { |user| user.posts.create!(body: Faker::Lorem.sentence(word_count: 5), title: title) }
 end
 
-
+User.create!(
+  username: "user",
+  email: "user@devol.io",
+  password: "password",
+  password_confirmation: "password"
+  activation_state: true
+)

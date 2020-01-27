@@ -1,20 +1,26 @@
 <%= provide(:title, @user.username) %>
 
 <%= render 'follow_form' if logged_in? %>
+<div class="user-cont">
 <div class='about-user'>
-  <h1><%= @user.username %></h2>
-  <a href="https://github.com/#{@user.username}" class="fab fa-github"></a>
-</div>  
-<div class="posts">
-<% if @user.posts.any? %>
-  <h3>Posts (<%= @user.posts.count %>)</h3>
-  <ol class="posts">
-    <%= render @posts %>
-  </ol>
-  <%= will_paginate @posts %>
-<% end %>
+  <h1><%= @user.username %></h1>
+  <% if @user.github %>
+    <a href="https://github.com/<%= @user.github %>" target="_blank" rel="noopener" class="fab fa-github"></a>
+  <% end %>
+  <h2>Projects</h2>
+  <%= render "shared/stats" %>
+  <br>
+  <% if @user == current_user %>
+    <%= link_to 'Edit', edit_user_path(@user), class: "btn-white" %>
+  <% end %>
 </div>
-
-<%= render "shared/stats" %>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="posts">
+  <% if @user.posts.any? %>
+    <h3>Posts (<%= @user.posts.count %>)</h3>
+    <ul>
+      <%= render @posts %>
+    </ul>
+    <%= will_paginate @posts %>
+  <% end %>
+</div>
+</div>

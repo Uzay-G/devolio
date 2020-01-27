@@ -6,8 +6,16 @@ class ApplicationController < ActionController::Base
 
     def discuss
     end
+
+    def require_no_user
+        if current_user
+            flash[:error] = "You must be logged out to access that page"
+            redirect_back fallback_location: root_url
+        end
+    end
     private
         def not_authenticated
-            redirect_to "/login", error: "Please login first"
+            flash[:error] = "Please login first"
+            redirect_to "/login"
         end
 end

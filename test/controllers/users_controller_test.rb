@@ -13,20 +13,25 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
+    delete "/logout"
     get new_user_url
     assert_response :success
   end
 
   test "should not be able to access login restricted views" do
-    post logout_url
+    delete logout_url
     get edit_user_url(@user)
     assert_redirected_to "/login"
     delete user_url(@user)
     assert_redirected_to "/login"
   end 
+
   test "should create user" do
+    delete "/logout"
+    assert_equal flash[:notice], "Logged out!"
+
     assert_difference('User.count') do
-      post users_url, params: { user: { email: "sda2@as.com", password: "secret", password_confirmation: "secret", username: "xas"} }
+      post users_url, params: { user: { email: "sda2@as.com", password: "secret", password_confirmation: "secret", username: "xasaaa"} }
     end
    # assert_redirected_to user_url(User.last)
   end

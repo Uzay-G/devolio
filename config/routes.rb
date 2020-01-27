@@ -12,9 +12,11 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :posts
+
   get '/login', to: 'user_sessions#new', :as => :login
-  post '/logout' => 'user_sessions#destroy', :as => :logout
-  root :to => "application#home"
+  delete '/logout' => 'user_sessions#destroy', :as => :logout
+  root "application#home"
   get "/discuss", to: "application#discuss"
   get  '/signup',  to: 'users#new'
   resources :user_zeros, only: [:new, :create]

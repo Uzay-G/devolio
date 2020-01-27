@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_11_125809) do
+ActiveRecord::Schema.define(version: 2020_01_27_173519) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_01_11_125809) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "url"
     t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -62,7 +63,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_125809) do
     t.integer "failed_logins_count", default: 0
     t.datetime "lock_expires_at"
     t.string "unlock_token"
-    t.string "dribble"
+    t.string "role", default: "user"
+    t.string "github"
     t.index ["activation_token"], name: "index_users_on_activation_token"
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
     t.index ["unlock_token"], name: "index_users_on_unlock_token"

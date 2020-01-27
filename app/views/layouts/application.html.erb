@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
+
     <script src="https://kit.fontawesome.com/18bf0be4f4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
     <%= csp_meta_tag %>
@@ -16,7 +17,6 @@
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
       </script>
     <![endif]-->
-<<<<<<< HEAD
 <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
 <script>
 (function(f, a, t, h, o, m){
@@ -27,14 +27,12 @@
 	m=f.getElementsByTagName('script')[0];
 	o.async=1; o.src=t; o.id='fathom-script';
 	m.parentNode.insertBefore(o,m)
-})(document, window, 'https://www.devol.io/packs/jsu/tracker.js', 'fathom');
+})(document, window, 'https://www.devol.io/tracker.js', 'fathom');
 fathom('set', 'siteId', 'CYGVC');
 fathom('trackPageview');
 </script>
 <!-- / Fathom -->
-=======
->>>>>>> parent of aa77be3... fathom
-    <link href="https://fonts.googleapis.com/css?family=Lilita+One|Open+Sans&display=swap" rel="stylesheet">     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700|Open+Sans&display=swap" rel="stylesheet">     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 

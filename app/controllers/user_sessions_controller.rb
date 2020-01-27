@@ -1,12 +1,16 @@
 class UserSessionsController < ApplicationController
   skip_before_action :require_login, except: [:destroy]
+  before_action :require_no_user, only: [:new, :create]
+
   def new
     @user = User.new
+    session[:return_to] = params[:return_to] if params[:return_to] != "/login"
   end
 
   def create
     if @user = login(params[:username], params[:password], params[:remember])
-      redirect_back_or_to(@user, notice: 'Login successful')
+      flash[:notice] = 'Login successful'
+      redirect_to session[:return_to] || @user
     else
       flash[:error] = 'Login failed'
       render action: 'new'
@@ -15,6 +19,7 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to(:users, notice: 'Logged out!')
+    flash[:notice] = 'Logged out!'
+    redirect_to params[:return_to] || :users
   end
 end

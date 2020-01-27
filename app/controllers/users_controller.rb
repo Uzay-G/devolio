@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: [:index, :new, :create, :show, :activate, :following, :followers]  
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :require_no_user, only: [:new, :create]
 
   # GET /users
   # GET /users.json
@@ -72,8 +73,7 @@ class UsersController < ApplicationController
   def activate
     if @user = User.load_from_activation_token(params[:id])
       @user.activate!
-      login(@user)
-      redirect_to(@user, :notice => 'User was successfully activated.')
+      redirect_to(:login, :notice => 'User was successfully activated.')
     else
       not_authenticated
     end
@@ -101,14 +101,14 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :username, :password, :password_confirmation, :github, :dribble)
+      params.require(:user).permit(:email, :username, :password, :password_confirmation, :github)
     end
 
     def correct_user
       @user = User.find(params[:id])
       unless @user == current_user
         flash[:error] = "You don't have the permissions to edit that user."
-        redirect_back_or_to(root_url)
+        redirect_back fallback_location: root_url
       end
     end
 end

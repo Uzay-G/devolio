@@ -6,6 +6,7 @@ one:
   title: MyString
   created_at: <%= 10.minutes.ago %>
   user: arch
+  url: MyString
 
 two:
   body: MyText
@@ -13,6 +14,7 @@ two:
   title: adad
   created_at: <%= 10.minutes.ago %>
   user: one
+  url: MyText
 
 most_recent:
   body: I am recent
@@ -20,6 +22,7 @@ most_recent:
   title: No one is more recent!
   created_at: <%= Time.zone.now %>
   user: malory
+  url: no-one-is-more-recent
 
 <% 30.times do |n| %>
 post_<%= n %>:
@@ -27,4 +30,6 @@ post_<%= n %>:
   title: <%= "#{n}Heeya!" %> 
   created_at: <%= 42.days.ago %>
   user: one
+  url: <%= "#{n}-heeya" %> 
+  
 <% end %>
