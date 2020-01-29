@@ -344,7 +344,17 @@ input::placeholder {
       display: block;
     }
   }
-
+.like-btn {
+    border: none;
+    width: 24px;
+    height: 22px;
+}
+.like-btn-blank {
+    background: image_url("like.svg");
+}
+.like-btn-fill {
+    background: image_url("like-2.svg");
+}
 .post {
     background: #282a36;
     color: white;

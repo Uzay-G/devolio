@@ -31,9 +31,13 @@ gem 'sorcery'
 gem "oauth2"
 gem 'mail_form'
 
-# markdown processing
+# markdown to html processing and vice-versa 
 gem "redcarpet"
 
+# image uploading
+gem 'mini_magick'
+gem 'carrierwave'
+# css customization
 gem 'sanitize'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

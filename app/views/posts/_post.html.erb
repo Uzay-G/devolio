@@ -1,7 +1,7 @@
 <li id="post-<%= post.id %>">
   <h2><%= link_to post.title, post_path(post) %></h2>
   <span class="post-content">
-    <%= post.excerpt.html_safe %>
+    <%= post.excerpt %>
     <br>
     <% if post.body.length > 150 %>
       <a href='/posts/<%= post.url %>' class='btn-white'>See more</a>

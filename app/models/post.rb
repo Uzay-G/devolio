@@ -1,6 +1,9 @@
 class Post < ApplicationRecord
-
+  include Likeable
+  
   acts_as_url :title
+  has_many :likes, dependent: :destroy
+  has_many :likees, through: :likes, source: :user
 
   belongs_to :user
   validates :user_id, presence: true
@@ -12,11 +15,12 @@ class Post < ApplicationRecord
   end
 
   def excerpt
-    body.gsub!(/<img.*>/, "")
-    if body.length > 150
-      ActionController::Base.helpers.sanitize(body.truncate(150))
-    else
-      body.truncate(150) 
-    end
+    processed_excerpt = self.html_processed.gsub!(/<img.*>/, "")
+    ActionController::Base.helpers.sanitize(body.truncate(150))
+  end
+
+  def html_processed
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, fenced_code_blocks: true)
+    ActionController::Base.helpers.sanitize(markdown.render(body))
   end
 end

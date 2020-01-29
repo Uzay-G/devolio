@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get  '/signup',  to: 'users#new'
   resources :user_zeros, only: [:new, :create]
   resources :relationships,       only: [:create, :destroy]
+  resources :likes,       only: [:create, :destroy]
 
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook

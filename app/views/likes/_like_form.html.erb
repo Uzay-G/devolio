@@ -1,0 +1,11 @@
+<% if @post.liked?(current_user) %>
+    <%= form_for(@post.likes.find_by(user_id: current_user.id), html: { method: :delete }) do |f| %>
+        <%= hidden_field_tag :post_id, @post.id %>
+        <%= f.submit "", class: "like-btn like-btn-fill" %>
+    <% end %>
+<% else %>
+    <%= form_for(@post.likes.build) do |f| %>
+        <%= hidden_field_tag :post_id, @post.id %>
+        <%= f.submit "", class: "like-btn like-btn-blank" %>
+    <% end %>
+<% end %>

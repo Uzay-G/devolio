@@ -1,8 +1,9 @@
 <%= provide(:title, @user.username) %>
 
-<%= render 'follow_form' if logged_in? %>
 <div class="user-cont">
 <div class='about-user'>
+<%= render 'follow_form' if current_user %>
+
   <h1><%= @user.username %></h1>
   <% if @user.github %>
     <a href="https://github.com/<%= @user.github %>" target="_blank" rel="noopener" class="fab fa-github"></a>
