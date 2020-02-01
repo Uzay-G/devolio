@@ -13,7 +13,7 @@
   User.create!(username:  name,
                email: email,
                password:              password,
-               password_confirmation: password
+               password_confirmation: password,
                activation_state: true
                )
 end
@@ -30,6 +30,6 @@ User.create!(
   username: "user",
   email: "user@devol.io",
   password: "password",
-  password_confirmation: "password"
+  password_confirmation: "password",
   activation_state: true
 )

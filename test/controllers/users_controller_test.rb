@@ -3,7 +3,7 @@ require 'test_helper'
 class UsersControllerTest < ActionDispatch::IntegrationTest
 
   setup do
-    @user = users(:one)
+    @user = users(:arch)
     test_login_as(@user, "secret")
   end
 
@@ -31,7 +31,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_equal flash[:notice], "Logged out!"
 
     assert_difference('User.count') do
-      post users_url, params: { user: { email: "sda2@as.com", password: "secret", password_confirmation: "secret", username: "xasaaa"} }
+      post users_url, params: { user: { email: "sda2@as.com", password: "password", password_confirmation: "password", username: "xasaaa"} }
     end
    # assert_redirected_to user_url(User.last)
   end

@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
             redirect_back fallback_location: root_url
         end
     end
+
     private
         def not_authenticated
             flash[:error] = "Please login first"

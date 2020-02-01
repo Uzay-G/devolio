@@ -5,11 +5,12 @@
 <%= render 'follow_form' if current_user %>
 
   <h1><%= @user.username %></h1>
-  <% if @user.github %>
-    <a href="https://github.com/<%= @user.github %>" target="_blank" rel="noopener" class="fab fa-github"></a>
+  <% if @user.github %> 
+    <a href="https://github.com/<%= @user.github %>" target="_blank" rel="noopener" style="margin: 10px 0px" class="fab fa-github"></a>
   <% end %>
-  <h2>Projects</h2>
+
   <%= render "shared/stats" %>
+  <h2>Projects</h2>
   <br>
   <% if @user == current_user %>
     <%= link_to 'Edit', edit_user_path(@user), class: "btn-white" %>

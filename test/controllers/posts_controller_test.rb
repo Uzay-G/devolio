@@ -36,4 +36,16 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to "/login"
     assert_equal flash[:error], "Please login first"
   end
+
+  test "different user cannot edit someone else's post" do
+    post = users(:malory).posts.first
+
+    get edit_post_path(post)
+    assert_equal flash[:error], "You don't have the permissions to edit that user."
+    assert_redirected_to post_path(post)
+
+    patch post_path(post), params: { post: { title: "Agar", body: "I shouldn't be allowed to write this post"}}
+    assert_equal flash[:error], "You don't have the permissions to edit that user."
+    assert_redirected_to post_path(post)
+  end
 end

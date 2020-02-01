@@ -8,9 +8,12 @@
   <p class="timestamp">
   Posted <%= time_ago_in_words(@post.created_at) %> ago.
  </p>
- <%= link_to "Edit", edit_post_path(@post.url), class: "white-btn" %>
+
   <%= render "likes/like_form" %>
   <span class="post-content">
     <%= @post.html_processed %>
   </span>
+  <% if @post.user == current_user %>
+    <%= link_to "Edit", edit_post_path(@post.url), class: "btn-white" %>
+  <% end %>
 </div>

@@ -17,3 +17,4 @@ class LikeTest < ActiveSupport::TestCase
     assert !post.liked?(users(:one))
   end
 end
+puts "Linux mothafuckers!!"

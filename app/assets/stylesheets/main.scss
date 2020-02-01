@@ -289,7 +289,6 @@ input::placeholder {
 
 .user-cont {
     display: flex;
-    flex-wrap: wrap;
 
 }
 .about-user {
@@ -348,12 +347,19 @@ input::placeholder {
     border: none;
     width: 24px;
     height: 22px;
+    display: block;
+    margin: 20px 0px;
 }
 .like-btn-blank {
     background: image_url("like.svg");
 }
 .like-btn-fill {
     background: image_url("like-2.svg");
+}
+blockquote {
+	padding: 0 1em;
+	color: #6a737d;
+	border-left: .25em solid #dfe2e5;
 }
 .post {
     background: #282a36;
@@ -364,6 +370,29 @@ input::placeholder {
         color: #c9485b;
         text-decoration: none;
         font-family: "Open Sans"
+    }
+    .edit_post, .new_post {
+        #post_title {
+            font-size: 25px;
+            color: white;
+            font-family: "Raleway", sans-serif;
+            margin: 5px;
+        }
+        input[type='submit'] {
+            width: initial;
+            font-size: 23px;
+        }
+        #post_title, textarea {
+            width: 90%;
+            border: none;
+            background: inherit;
+            margin: 10px;
+            padding: 5px;
+        }
+        textarea {
+            min-height: 200px;
+            color: #9be3de;
+        }
     }
 }
 /* ipad */
@@ -417,6 +446,8 @@ input::placeholder {
     .user-cont {
         flex-direction: column;
         width: 100%;
+        flex-wrap: wrap;
+
         .posts {
             margin: auto;
             justify-items: center;

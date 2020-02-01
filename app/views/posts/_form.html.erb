@@ -1,8 +1,17 @@
-<%= form_for(@post) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
-    <div class="field">
-      <%= f.text_field :title, placeholder: "Post Title" %>
-      <%= f.text_area :body, placeholder: "Body Text" %>
-    </div>
-    <%= f.submit "Post", class: "btn btn-primary" %>
-<% end %>
+<div class="post">
+  <%= form_for(@post) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="field">
+        <%= f.text_field :title, placeholder: "Post Title" %>
+        <%= f.text_area :body, placeholder: "Body Text", oninput:'this.style.height = "";this.style.height = this.scrollHeight + "px"' %>
+      </div>
+      <%= f.submit "Post", class: "btn-white" %>
+  <% end %>
+</div>
+
+<script>
+window.onload = function() {
+  let textarea = document.getElementById("post_body")
+  textarea.style.height = textarea.scrollHeight + "px"
+}
+</script>

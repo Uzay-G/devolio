@@ -4,12 +4,12 @@ one:
   username: Devo
   crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("secret", salt) %>
   activation_state: active
-
+  
 arch:
   email: arch@ie.com
   salt: <%= salt = "asdasdastrdadadadadadadada4325234324sdfds" %>
   username: archa
-  crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("sedscret", salt) %>
+  crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("secret", salt) %>
   activation_state: active
 
 lana:
