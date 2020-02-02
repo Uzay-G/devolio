@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :find_post
+  before_action :find_likeable
 
   def create
     @post.like(current_user)
@@ -13,7 +13,7 @@ class LikesController < ApplicationController
   
   private  
 
-  def find_post
-    @post = Post.find(params[:post_id])
+  def find_likeable
+    @post = Post.find(params[:likeable_id])
   end
 end

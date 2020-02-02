@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   skip_before_action :require_login, only: [:show]
-  before_action :correct_author, except: [:show, :new]
+  before_action :correct_author, only: [:update, :edit, :destroy]
   before_action :get_post, except: [:create, :new]
 
     def create

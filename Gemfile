@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem "sitemap_generator"
 
+gem "validate_url"
 # acts as url slugs
 gem "stringex"
 # Use Active Storage variant

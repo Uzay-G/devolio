@@ -2,7 +2,7 @@ module Likeable
   extend ActiveSupport::Concern
   
   included do
-    has_many :likes, dependent: :destroy
+    has_many :likes, as: :likeable, dependent: :destroy
     has_many :likees, through: :likes, source: :user
   end
 

@@ -2,14 +2,16 @@
 
 one:
   user: one
-  url: MyString
+  url: 
   source: MyString
   description: MyText
   name: MyString
-
+  user: one
+  
 two:
   user: two
   url: MyString
   source: MyString
   description: MyText
   name: MyString
+  user: arch
