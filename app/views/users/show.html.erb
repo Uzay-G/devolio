@@ -5,7 +5,7 @@
 <%= render 'follow_form' if current_user %>
 
   <h1><%= @user.username %></h1>
-  <% if @user.github %> 
+  <% if !@user.github.blank? %> 
     <a href="https://github.com/<%= @user.github %>" target="_blank" rel="noopener" style="margin: 10px 0px" class="fab fa-github"></a>
   <% end %>
 

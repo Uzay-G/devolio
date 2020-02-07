@@ -1,6 +1,7 @@
-<% if @user.github %>
-    <img src="https://github.com/<%= @user.github %>.png" width="100" height="100"  alt="profile pic">
+<% if @user.avatar.attached? %>
+  <%= image_tag @user.avatar, class: "avatar" %>
+<% elsif !@user.github.blank? %>
+    <img src="https://github.com/<%= @user.github %>.png" width="100" height="100"  alt="profile pic" class="avatar">
   <% else %> 
-    <!--<img src="https://avatar.tobi.sh/<%= @user.username %>.svg?text=<%= @user.username.split.map { |word| word[0].titleize }.join("") %>">-->
-    <svg data-jdenticon-value="<%= @user.username %>" width="80" height="90"></svg>
+    <svg data-jdenticon-value="<%= @user.username %>" width="80" height="90" class="avatar"></svg>
   <% end %>

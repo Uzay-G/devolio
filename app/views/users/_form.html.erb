@@ -1,7 +1,7 @@
 <%= render "shared/oauth" %>
 <%= form_with(model: user, local: true) do |form| %>
   <%= render "shared/error_messages", object: user %>
-
+  <input name="_method" type="hidden" value="patch" />
   <div class="field">
     <%= form.text_field :username, placeholder: "Username" %>
   </div>
@@ -15,7 +15,7 @@
 
   <div class="field">
     <%= form.file_field :avatar, style:"display: none" %>
-    <div onclick="upload_avatar()">
+    <div onclick="upload_avatar()" class="random">
       <%= render "avatar" %>
       <p class="btn-white">Avatar</p>
     </div>
@@ -33,10 +33,34 @@
     <%= form.submit %>
   </div>
 <% end %>
-
 <script>
+function readURL(input) {
+  if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        if ($(".avatar").length > 0) {
+          $("img.avatar").attr("src", e.target.result)
+        } else{
+          $("svg.avatar").replaceWith(
+            $("<img/>", {
+              "src": e.target.result,
+              "css": {
+                "width": "250",
+                "height": "250",
+                "border-radius": "125"
+              }
+            })
+        )}
+      }
+      reader.readAsDataURL(input.files[0]);
+  }
+}
 
 function upload_avatar() {
-    document.getElementById("user_avatar").click();
+    $("#user_avatar").click();
 }
+
+$("#user_avatar").change(function() {
+  readURL(this);
+})
 </script>
