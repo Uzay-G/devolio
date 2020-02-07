@@ -33,8 +33,8 @@ class PostsController < ApplicationController
 
     def destroy
         @post.destroy
-        flash[:success] = "Post deleted"
-        redirect_back fallback_location: root_url
+        flash[:notice] = "Post deleted!"
+        redirect_back fallback_location: @post.user
     end
 
     def show
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
     def correct_author
       @post = Post.find_by_url(params[:id])
       unless @post.user == current_user
-        flash[:error] = "You don't have the permissions to edit that user."
+        flash[:error] = "You don't have the permissions to edit that post."
         redirect_to @post
       end
     end

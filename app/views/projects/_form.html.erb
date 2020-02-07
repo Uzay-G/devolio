@@ -1,0 +1,18 @@
+<div class="project">
+  <%= form_for(@project) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="field">
+        <%= f.text_field :name, placeholder: "Project Name" %>
+        <%= f.text_area :description, placeholder: "What is your project?", oninput:'this.style.height = "";this.style.height = this.scrollHeight + "px"' %>
+        <%= f.url_field :url, placeholder: "Website or url where we can see your project live!" %>
+      </div>
+      <%= f.submit "Post", class: "btn-white" %>
+  <% end %>
+</div>
+
+<script>
+window.onload = function() {
+  let textarea = document.getElementById("post_body")
+  textarea.style.height = textarea.scrollHeight + "px"
+}
+</script>

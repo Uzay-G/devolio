@@ -16,6 +16,6 @@ module Likeable
   end
 
   def like(user)
-    likes << Like.new(user_id: user.id)
+    likes << Like.new(user: user)
   end
 end

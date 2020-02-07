@@ -7,8 +7,7 @@
       <a href='/posts/<%= post.url %>' class='btn-white'>See more</a>
     <% end %>
     <% if post.user == current_user || current_user&.role == "admin" %>
-      <%= link_to "Delete", post, method: :delete, class: "btn-white",
-                                       data: { confirm: "Are you sure?" } %>
+      <%= button_to "Delete", post, method: :delete, class: "btn-white"  %>
     <% end %>
     <br><br>
     <p class="timestamp">

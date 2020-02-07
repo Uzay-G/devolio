@@ -36,8 +36,7 @@ gem 'mail_form'
 gem "redcarpet"
 
 # image uploading
-gem 'mini_magick'
-gem 'carrierwave'
+gem "aws-sdk-s3", require: false
 # css customization
 gem 'sanitize'
 # Reduces boot times through caching; required in config/boot.rb

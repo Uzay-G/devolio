@@ -22,8 +22,13 @@ end
 # posts
 users = User.order(:created_at).take(6)
 50.times do |i|
-  title = "Devol.io #{i}"
+  title = Faker::Lorem.sentence(word_count: 5)
   users.each { |user| user.posts.create!(body: Faker::Lorem.sentence(word_count: 5), title: title) }
+end
+
+50.times do |i|
+  name = Faker::Lorem.sentence(word_count: 7)
+  users.each { |user| user.projects.create!(description: Faker::Lorem.sentence(word_count: 5), name: name, url: "https://www.devol.io") }
 end
 
 User.create!(

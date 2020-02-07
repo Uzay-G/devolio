@@ -361,6 +361,24 @@ blockquote {
 	color: #6a737d;
 	border-left: .25em solid #dfe2e5;
 }
+
+.project {
+    background: #282a36;
+    width: 80%;
+    padding: 100px;
+    margin: auto;
+    color: white;
+    .project-info {
+        display: flex;
+    }
+    .project-logo {
+        background: #ffffff;
+        width: 110px;
+        border: 5px solid #6e5773;
+        padding: 6px;
+        border-radius: 70px;
+    }
+}
 .post {
     background: #282a36;
     color: white;

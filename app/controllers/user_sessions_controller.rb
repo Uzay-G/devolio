@@ -4,13 +4,13 @@ class UserSessionsController < ApplicationController
 
   def new
     @user = User.new
-    session[:return_to] = params[:return_to] if params[:return_to] != "/login"
+    session[:party] = params[:return_to]
   end
 
   def create
     if @user = login(params[:username], params[:password], params[:remember])
       flash[:notice] = 'Login successful'
-      redirect_to session[:return_to] || @user
+      redirect_to session[:party] || @user
     else
       flash[:error] = 'Login failed'
       render action: 'new'

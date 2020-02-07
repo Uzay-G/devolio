@@ -11,12 +11,16 @@
 
   <%= render "shared/stats" %>
   <h2>Projects</h2>
+  <% @user.projects.each do |project| %>
+    <h2><%= link_to project.name, project_url(project)  %></h2>
+  <% end %>
   <br>
   <% if @user == current_user %>
     <%= link_to 'Edit', edit_user_path(@user), class: "btn-white" %>
   <% end %>
 </div>
 <div class="posts">
+  <%= render "avatar" %>
   <% if @user.posts.any? %>
     <h3>Posts (<%= @user.posts.count %>)</h3>
     <ul>

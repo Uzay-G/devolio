@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'user_zeros/create'
   resources :user_sessions
   resources :contacts
-
+  resources :projects
+  
   resources :users do
     member do
       get :activate

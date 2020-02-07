@@ -9,7 +9,7 @@
   Posted <%= time_ago_in_words(@post.created_at) %> ago.
  </p>
 
-  <%= render "likes/like_form" %>
+  <%= render "likes/like_form", object: @post %>
   <span class="post-content">
     <%= @post.html_processed %>
   </span>

@@ -1,5 +1,8 @@
 class User < ApplicationRecord 
   include Likeable
+
+  has_one_attached :avatar
+  
   has_many :projects, dependent: :destroy
   has_many :posts, dependent: :destroy
 

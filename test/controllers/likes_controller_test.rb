@@ -8,7 +8,7 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
 
   test "creating a like for a post" do
     assert_difference("Like.count", 1) do
-      post likes_path, params: { likeable_id: Post.first.id }
+      post likes_path, params: { likeable_id: Post.first.id, likeable_type: "Post" }
     end
   end
 
