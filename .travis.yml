@@ -1,7 +1,7 @@
 language: ruby
 
 cache: bundler  
-script: rails test
+script: bundle exec rails test
 
 before_install:
   - nvm install node
