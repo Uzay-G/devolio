@@ -1,4 +1,7 @@
 language: ruby
+
+node_js:
+  - stable
 cache: bundler  
 script: bundle exec rails assets:precompile
 install: 
