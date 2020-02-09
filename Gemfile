@@ -8,6 +8,7 @@ gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 gem 'faker'
+gem 'image_processing'
 gem 'will_paginate', '~> 3.1.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
@@ -38,7 +39,7 @@ gem "redcarpet"
 # image uploading
 gem "aws-sdk-s3", require: false
 # css customization
-gem 'sanitize'
+gem 'sanitize' 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

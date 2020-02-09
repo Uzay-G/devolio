@@ -13,9 +13,7 @@ body {
 .right {
     float: right;
 }
-ul {
-    list-style: none;
-}
+
 p {
     font-family: "Open Sans", sans-serif;
 }
@@ -176,7 +174,10 @@ a {
         color: #F34573
     }
 }
-
+.fa-github {
+    font-size: 30px;
+    color: #c9485b;
+}
 #contact_message {
     height: 84px;
 }
@@ -342,6 +343,9 @@ input::placeholder {
       color: gray;
       display: block;
     }
+    h2 a {
+        color: #c9485b; 
+    }
   }
 .like-btn {
     border: none;
@@ -361,7 +365,9 @@ blockquote {
 	color: #6a737d;
 	border-left: .25em solid #dfe2e5;
 }
-
+li {
+    font-family: "Open Sans", sans-serif;
+}
 .project {
     background: #282a36;
     width: 80%;
@@ -379,13 +385,22 @@ blockquote {
         border-radius: 70px;
     }
 }
+.btn-red {
+    background: #333333;
+    color: #c9485b;
+    padding: 5px 8px;
+    border: none;
+    font-family: "Raleway", sans-serif;
+}
 .post {
     background: #282a36;
     color: white;
     padding: 30px;
     width: 70%;
-    .author {
+    a {
         color: #c9485b;
+    }
+    .author {
         text-decoration: none;
         font-family: "Open Sans"
     }

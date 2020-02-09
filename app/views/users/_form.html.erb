@@ -39,10 +39,11 @@ function readURL(input) {
       reader.onload = function (e) {
         if ($(".avatar").length > 0) {
           $("img.avatar").attr("src", e.target.result)
-        } else{
+        } else {
           $("svg.avatar").replaceWith(
             $("<img/>", {
               "src": e.target.result,
+              "class": "avatar local-avatar",
               "css": {
                 "width": "250",
                 "height": "250",
@@ -62,4 +63,22 @@ function upload_avatar() {
 $("#user_avatar").change(function() {
   readURL(this);
 })
+
+$("#user_github").change(function() {
+  if ($("img.local-avatar").length == 0) {
+    if ($(".avatar").length > 0) {
+      replaceWithGithub($(".avatar"));
+    }  
+  }
+})
+
+function replaceWithGithub(img) {
+  img.replaceWith(
+    $("<img/>", {
+      src: "https://github.com/" +  $("#user_github").val() + ".png",
+      class: "avatar",
+      width: "100",
+      height: "100"
+    }))
+}
 </script>

@@ -14,7 +14,7 @@ class Post < ApplicationRecord
 
   def excerpt
     processed_excerpt = self.html_processed.gsub(/<img.*>/, "")
-    ActionController::Base.helpers.sanitize(processed_excerpt.truncate(150))
+    ActionController::Base.helpers.sanitize(processed_excerpt.truncate(350))
   end
 
   def html_processed
