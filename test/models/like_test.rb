@@ -11,12 +11,17 @@ class LikeTest < ActiveSupport::TestCase
     assert @post.liked?(users(:one))
   end
 
-  test "unlike a post" do
-    @post.like(users(:one))
-    assert @post.liked?(users(:one))
+  test "like a project" do
+    @project.like(users(:one))
+    assert @project.liked?(users(:one))
+  end
 
-    @post.unlike(users(:one))
-    assert !@post.liked?(users(:one))
+  test "unlike a project" do
+    @project.like(users(:one))
+    assert @project.liked?(users(:one))
+
+    @project.unlike(users(:one))
+    assert !@project.liked?(users(:one))
   end
 
   test "should not be able to like post multiple times" do

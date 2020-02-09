@@ -6,6 +6,7 @@
       </div>
   
   <div class="project-text">
+    <%= render 'relationships/follow_form', object: @project if current_user %>
     <h2><%= @project.name %></h2>
     <span><%= link_to @project.user.username, @project.user, class:"author" %></span>
     <% if @project.user.github %>
@@ -14,6 +15,7 @@
   </div>
   </div>
 
+  <%= render "shared/stats" %>
   <p class="timestamp">
   Posted <%= time_ago_in_words(@project.created_at) %> ago.
  </p>

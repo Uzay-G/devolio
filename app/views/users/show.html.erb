@@ -2,7 +2,7 @@
 
 <div class="user-cont">
 <div class='about-user'>
-<%= render 'follow_form' if current_user %>
+<%= render 'relationships/follow_form', object: @user if current_user %>
 
   <h1><%= @user.username %></h1>
   <% if !@user.github.blank? %> 

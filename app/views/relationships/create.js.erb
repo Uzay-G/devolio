@@ -1,2 +1,2 @@
-document.querySelector("#follow_form").innerHTML = ("<%= escape_javascript(render('users/unfollow')) %>");
-document.querySelector("#followers").innerHTML = ('<%= @user.followers.count %>');
+$("#follow_form").html("<%= escape_javascript(render('relationships/unfollow', object: @followable)) %>");
+$("#followers").html('<%= @followable.followers.count %>');

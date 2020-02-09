@@ -1,0 +1,5 @@
+<%= form_for(current_user.active_relationships.find_by(followable_id: object.id),
+  method: "delete", remote: true) do |f| %>
+    <input name="_method" type="hidden" value="delete" />
+    <%= f.submit "Unfollow", class: "btn" %>
+<% end %>

@@ -1,20 +1,21 @@
 class RelationshipsController < ApplicationController
 
     def create
-        @user = User.find(params[:followed_id])
-        current_user.follow(@user)
+        followable_class = params[:followable_type].constantize
+        @followable = followable_class.find(params[:followable_id])
+        current_user.follow(@followable)
         respond_to do |format|
-            format.html { redirect_to @user }
-            #format.js
+            format.html { redirect_to @followable }
+            format.js
           end      
       end
 
     def destroy
-        @user = Relationship.find(params[:id]).followed
-        current_user.unfollow(@user)
+        @followable = Relationship.find(params[:id]).followable
+        current_user.unfollow(@followable)
         respond_to do |format|
-            format.html { redirect_to @user }
-           # format.js
+            format.html { redirect_to @followable }
+            format.js
         end
     end
 end

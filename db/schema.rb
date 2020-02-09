@@ -77,11 +77,12 @@ ActiveRecord::Schema.define(version: 2020_02_07_223848) do
 
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
-    t.integer "followed_id"
+    t.string "followable_type"
+    t.integer "followable_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["followed_id"], name: "index_relationships_on_followed_id"
-    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index "\"follower_id\", \"followed_id\"", name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["followable_type", "followable_id"], name: "index_relationships_on_followable_type_and_followable_id"
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
@@ -118,4 +119,5 @@ ActiveRecord::Schema.define(version: 2020_02_07_223848) do
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "projects", "users"
+  add_foreign_key "relationships", "users", column: "follower_id"
 end
