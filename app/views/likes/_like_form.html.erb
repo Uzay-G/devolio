@@ -1,13 +1,9 @@
+<div id="like_form">
+
 <% if object.liked?(current_user) %>
-    <%= form_for(object.likes.find_by(user_id: current_user.id), html: { method: :delete }) do |f| %>
-        <%= hidden_field_tag :likeable_id, object.id %>
-        <%= hidden_field_tag :likeable_type, object.class.name %>
-        <%= f.submit "", class: "like-btn like-btn-fill" %>
-    <% end %>
+    <%= render "likes/unlike", object: object %>
 <% else %>
-    <%= form_for(object.likes.build) do |f| %>
-        <%= hidden_field_tag :likeable_id, object.id %>
-        <%= hidden_field_tag :likeable_type, object.class.name %>
-        <%= f.submit "", class: "like-btn like-btn-blank" %>
-    <% end %>
+    <%= render "likes/like", object: object %>
 <% end %>
+
+</div>

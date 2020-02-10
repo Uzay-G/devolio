@@ -3,12 +3,18 @@ class LikesController < ApplicationController
 
   def create
     @likeable.like(current_user)
-    redirect_to @likeable
+    respond_to do |format|
+      format.html { redirect_to @likeable }
+      format.js
+    end
   end
 
   def destroy
     @likeable.unlike(current_user)
-    redirect_to @likeable
+    respond_to do |format|
+      format.html { redirect_to @likeable }
+      format.js
+    end
   end
   
   private  

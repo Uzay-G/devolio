@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   require 'uri'
   include Likeable
-  include Followables
+  include Followable
 
   belongs_to :user
 
