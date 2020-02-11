@@ -174,7 +174,7 @@ a {
         color: #F34573
     }
 }
-.fa-github {
+.fa-github, .fa-edit {
     font-size: 30px;
     color: #c9485b;
 }
@@ -374,15 +374,66 @@ li {
     padding: 100px;
     margin: auto;
     color: white;
+    .project-btns {
+        display: flex;
+        align-items: center;
+        * {
+            margin: 0px 4px
+        }
+    }
     .project-info {
         display: flex;
+        padding: 50px;
+        justify-content: space-between;
+        width: 36%;
+        p {
+            display: block;
+        }
+    }
+
+    .project-mast {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
     }
     .project-logo {
-        background: #ffffff;
-        width: 110px;
-        border: 5px solid #6e5773;
-        padding: 6px;
-        border-radius: 70px;
+        background: white;
+        transition: box-shadow 2s;
+        padding: 5px;
+        &:hover {
+            box-shadow: 0 0 0 8px #d4d7dd;
+
+        }
+        img {
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            width: 90px;
+            height: 90px;
+        }
+    }
+
+    .project-form {
+        width: 90%;
+        margin: auto;
+        input:not(.btn-red), textarea {
+            display: block;
+            width: 80%;
+            background: #434e52;
+            padding: 20px;
+            color: #f4f4f4;
+            font-family: "Open Sans";
+            border: none;
+        }
+        input[type="submit"] {
+            font-size: 20px;
+        }
+        h3 {
+            color: #c9485b;
+        }
     }
 }
 .btn-red {
@@ -391,6 +442,12 @@ li {
     padding: 5px 8px;
     border: none;
     font-family: "Raleway", sans-serif;
+}
+.white-link {
+    color: white;
+    &:hover {
+        text-decoration: underline;
+    }
 }
 .post {
     background: #282a36;

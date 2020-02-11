@@ -1,18 +1,28 @@
 <div class="project">
+  <div class="project-info" style="width: 30%">
+    <div class="project-logo">
+    <% identicon = @project.new_record? ? "#{current_user.username}-project-#{current_user.projects.count}" : "#{current_user.username}-project-#{current_user.projects.index(@project)}" %>
+    <svg data-jdenticon-value="<%= identicon %>" width="100" height="100" class="avatar"></svg>
+    </div>
+    <div class="project-text">
+      <h1><%= @project.name %></h1>
+    </div>
+  </div>
+  <div class="project-form">
   <%= form_for(@project) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <div class="field">
-        <%= f.text_field :name, placeholder: "Project Name" %>
-        <%= f.text_area :description, placeholder: "What is your project?", oninput:'this.style.height = "";this.style.height = this.scrollHeight + "px"' %>
-        <%= f.url_field :url, placeholder: "Website or url where we can see your project live!" %>
+        <h3>Name</h3>
+        <%= f.text_field :name %>
+        <h3>Description</h2>
+        <%= f.text_area :description, oninput:'this.style.height = "";this.style.height = this.scrollHeight + "px"' %>
+        <h3>Website</h3>
+        <%= f.url_field :url %>
+        <h3>Source Code URL</h3>
+        <%= f.url_field :source %>
       </div>
-      <%= f.submit "Post", class: "btn-white" %>
-  <% end %>
+      <br>
+      <%= f.submit "Post", class: "btn-red" %>
+    <% end %>
+  </div>
 </div>
-
-<script>
-window.onload = function() {
-  let textarea = document.getElementById("post_body")
-  textarea.style.height = textarea.scrollHeight + "px"
-}
-</script>
