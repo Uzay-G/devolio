@@ -3,7 +3,7 @@
   <div class="project-mast">
     <div class="project-info">
         <div class="project-logo">
-        <svg data-jdenticon-value="<%= "#{current_user.username}-project-#{current_user.projects.index(@project)}" %>" width="100" height="100" class="avatar"></svg>
+        <svg data-jdenticon-value="<%= "#{@project.user.username}-project-#{@project.user.projects.index(@project)}" %>" width="100" height="100" class="avatar"></svg>
          </div>
       <div class="project-text">
         <h1><%= link_to @project.name, @project.url, class: "white-link" %></h1>

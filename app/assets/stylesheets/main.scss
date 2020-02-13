@@ -381,11 +381,14 @@ li {
             margin: 0px 4px
         }
     }
+    .project-text {
+        width: 70%;
+    }
     .project-info {
         display: flex;
         padding: 50px;
         justify-content: space-between;
-        width: 36%;
+        width: 50%;
         p {
             display: block;
         }
@@ -400,6 +403,7 @@ li {
         background: white;
         transition: box-shadow 2s;
         padding: 5px;
+        height: 100px;
         &:hover {
             box-shadow: 0 0 0 8px #d4d7dd;
 

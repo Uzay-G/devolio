@@ -1,9 +1,11 @@
 <div id="like_form">
 
-<% if object.liked?(current_user) %>
-    <%= render "likes/unlike", object: object %>
-<% else %>
-    <%= render "likes/like", object: object %>
+<% if current_user %>
+    <% if object.liked?(current_user) %>
+        <%= render "likes/unlike", object: object %>
+    <% else %>
+        <%= render "likes/like", object: object %>
+    <% end %>
 <% end %>
 
 </div>
