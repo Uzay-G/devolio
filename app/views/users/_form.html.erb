@@ -11,14 +11,15 @@
   <div class="field">
   <%= form.text_field :github, placeholder: "Github username" %>
   </div>
-
-  <div class="field">
-    <%= form.file_field :avatar, style:"display: none" %>
-    <div onclick="upload_avatar()" class="random">
-      <%= render "avatar" %>
-      <p class="btn-white">Avatar</p>
+  <% unless current_page?(:action => "new") %>
+    <div class="field">
+      <%= form.file_field :avatar, style:"display: none" %>
+      <div onclick="upload_avatar()" class="random">
+        <%= render "avatar" %>
+        <p class="btn-white">Avatar</p>
+      </div>
     </div>
-  </div>
+  <% end %>
   <div class="contact-line"></div>
   <div class="field">
     <%= form.password_field :password, placeholder: "Password" %>
