@@ -399,25 +399,17 @@ li {
         width: 100%;
         justify-content: space-between;
     }
-    .project-logo {
+    .project-identicon {
         background: white;
         transition: box-shadow 2s;
         padding: 5px;
-        height: 100px;
+        height: 100px; 
+    }
+
+    .project-logo {
         &:hover {
             box-shadow: 0 0 0 8px #d4d7dd;
-
-        }
-        img {
-            margin: auto;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            width: 90px;
-            height: 90px;
-        }
+        }  
     }
 
     .project-form {

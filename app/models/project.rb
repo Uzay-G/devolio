@@ -3,6 +3,8 @@ class Project < ApplicationRecord
   include Likeable
   include Followable
 
+  has_one_attached :logo
+  
   belongs_to :user
 
   validates :description, length: { maximum: 70 }

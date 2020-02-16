@@ -1,9 +1,6 @@
 <div class="project">
-  <div class="project-info" style="width: 30%">
-    <div class="project-logo">
-    <% identicon = @project.new_record? ? "#{current_user.username}-project-#{current_user.projects.count}" : "#{current_user.username}-project-#{current_user.projects.index(@project)}" %>
-    <svg data-jdenticon-value="<%= identicon %>" width="100" height="100" class="avatar"></svg>
-    </div>
+  <div class="project-info">
+    <%= render "logo" %>
     <div class="project-text">
       <h1><%= @project.name %></h1>
     </div>
@@ -20,9 +17,43 @@
         <%= f.url_field :url %>
         <h3>Source Code URL</h3>
         <%= f.url_field :source %>
+        <%= f.file_field :logo, style: "display: none" %>
       </div>
       <br>
       <%= f.submit "Post", class: "btn-red" %>
     <% end %>
   </div>
 </div>
+
+<script>
+
+$(".project-logo").click(function() {
+    $("#project_logo").click()
+})
+function readURL(input) {
+  if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        if ($("img.project-logo").length > 0) {
+          $("img.project-logo").attr("src", e.target.result)
+        } else {
+          $("svg.project-logo").replaceWith(
+            $("<img/>", {
+              "src": e.target.result,
+              "class": "project-logo",
+              "css": {
+                "width": "100",
+                "height": "100",
+              }
+            })
+        )}
+      }
+      reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#project_logo").change(function() {
+  readURL(this);
+})
+
+</script>
