@@ -5,6 +5,9 @@
         <%= f.text_field :title, placeholder: "Post Title" %>
         <%= f.text_area :body, placeholder: "Body Text", oninput:'this.style.height = "";this.style.height = this.scrollHeight + "px"' %>
       </div>
+      <div class="field">
+        <%= f.file_field :images, multiple: true, direct_upload: true %>
+      </div>
       <%= f.submit "Post", class: "btn-white" %>
   <% end %>
 </div>
@@ -14,4 +17,19 @@ window.onload = function() {
   let textarea = document.getElementById("post_body")
   textarea.style.height = textarea.scrollHeight + "px"
 }
+function readURL(input) {
+  if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        // post_body.val(post_body.val() + "![alt text](" + e.target.result + ")")
+        }
+        reader.readAsDataURL(input.files[0]);
+  }
+}
+post_body = $("#post_body")
+$("#post_images").change(function() {
+  <% @post.images.each do |img| %>
+    post_body.val(post_body.val() + "![alt text](<%= url_for(img) %>")
+  <% end %>
+})
 </script>
