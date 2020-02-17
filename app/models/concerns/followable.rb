@@ -7,4 +7,9 @@ module Followable
                                    dependent:   :destroy
         has_many :followers, through: :passive_relationships, source: :follower
     end
+
+
+    def follower_count
+        followers.count
+    end
 end

@@ -58,6 +58,12 @@ GEM
       zeitwerk (~> 2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    algoliasearch (1.27.1)
+      httpclient (~> 2.8, >= 2.8.3)
+      json (>= 1.5.1)
+    algoliasearch-rails (1.23.2)
+      algoliasearch (>= 1.26.0, < 2.0.0)
+      json (>= 1.5.1)
     ansi (1.5.0)
     aws-eventstream (1.0.3)
     aws-partitions (1.270.0)
@@ -100,6 +106,7 @@ GEM
     ffi (1.11.3)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    httpclient (2.8.3)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.10.3)
@@ -108,6 +115,7 @@ GEM
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
     jmespath (1.4.0)
+    json (2.3.0)
     jwt (2.2.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -268,6 +276,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  algoliasearch-rails
   aws-sdk-s3
   bootsnap (>= 1.4.2)
   byebug

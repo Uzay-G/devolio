@@ -27,6 +27,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/initializers/algoliasearch.rb
 
 /public/packs
 /public/packs-test
@@ -34,3 +35,4 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+

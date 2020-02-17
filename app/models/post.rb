@@ -22,4 +22,15 @@ class Post < ApplicationRecord
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, fenced_code_blocks: true)
     ActionController::Base.helpers.sanitize(markdown.render(body))
   end
+
+
+
+
+  include AlgoliaSearch
+  algoliasearch do
+    attributes :title, :body, :like_count
+
+    searchableAttributes ['title', 'unordered(body)']
+    customRanking ['desc(like_count)']
+  end
 end

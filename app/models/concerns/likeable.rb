@@ -18,4 +18,8 @@ module Likeable
   def like(user)
     likes << Like.new(user: user)
   end
+
+  def like_count
+    likes.count
+  end
 end

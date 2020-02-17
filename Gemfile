@@ -35,7 +35,7 @@ gem 'mail_form'
 
 # markdown to html processing and vice-versa 
 gem "redcarpet"
-
+gem "algoliasearch-rails"
 # image uploading
 gem "aws-sdk-s3", require: false
 # css customization

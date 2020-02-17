@@ -23,7 +23,6 @@
     </ul>
   </div>
   <div class="project-btns">
-    <%= render "likes/like_form", object: @project %>
     <%= render 'relationships/follow_form', object: @project if current_user %>
   </div>
 </div>

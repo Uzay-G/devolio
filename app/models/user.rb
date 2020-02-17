@@ -38,4 +38,12 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+
+  include AlgoliaSearch
+  algoliasearch do
+    attributes :username, :github, :like_count
+
+    searchableAttributes ['username', 'github']
+    customRanking ['desc(like_count)']
+  end
 end
