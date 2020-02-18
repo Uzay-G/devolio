@@ -81,8 +81,8 @@ Rails.application.config.sorcery.configure do |config|
   # Default: `[]`
   #
   config.external_providers = [:github]
-  config.github.key = ENV["DEVOLIO_GITHUB_ID"]
-  config.github.secret = ENV["DEVOLIO_GITHUB_SECRET"]
+  config.github.key = ENV["github_id"]
+  config.github.secret = ENV["github_secret"]
   config.github.callback_url = "http://localhost:3000/oauth/callback?provider=github"
   config.github.scope = "user"
   config.github.user_info_mapping = {:username => "name", :email => "email", :github => "name" }

@@ -28,8 +28,15 @@ function readURL(input) {
 }
 post_body = $("#post_body")
 $("#post_images").change(function() {
+
+})
+
+addEventListener("direct-upload:end", event => {
+  const { id, file } = event.detail
+  console.log(file, id)
   <% @post.images.each do |img| %>
     post_body.val(post_body.val() + "![alt text](<%= url_for(img) %>")
   <% end %>
 })
+
 </script>
