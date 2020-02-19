@@ -1,16 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 one:
   follower: one
-  followed: arch
+  followable: arch
 
 two:
   follower: one
-  followed: malory
+  followable: malory
 
 three:
-  follower: lana
-  followed: one
+  follower: arch
+  followable: one
 
-four:
-  follower: archer
-  followed: one

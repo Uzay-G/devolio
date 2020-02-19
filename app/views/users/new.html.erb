@@ -1,7 +1,7 @@
 <%= provide(:title, "Sign Up") %>
 <div class="user_info">
 <h1>New User</h1>
-
+<%= render "shared/oauth" %>
 <%= render 'form', user: @user %>
 
 <%= link_to 'Back', users_path %>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'comments/update'
+  get 'comments/create'
+  get 'comments/destroy'
   get 'oauths/oauth'
   get 'oauths/callback'
   get 'user_zeros/create'
@@ -14,6 +17,7 @@ Rails.application.routes.draw do
   end
   
   resources :posts
+  resources :comments, only: [:create, :update, :destroy]
 
   get '/login', to: 'user_sessions#new', :as => :login
   delete '/logout' => 'user_sessions#destroy', :as => :logout
