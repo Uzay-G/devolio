@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_02_19_155717) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.integer "user_id", null: false
-    t.integer "post_id"
+    t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_comments_on_post_id"

@@ -1,9 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  body: MyText
+  body: First comment
   user: one
+  post: one
 
 two:
-  body: MyText
-  user: two
+  body: I didn't like that comment
+  user: arch
+  post: one

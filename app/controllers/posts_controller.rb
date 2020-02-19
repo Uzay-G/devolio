@@ -34,7 +34,7 @@ class PostsController < ApplicationController
     def destroy
         @post.destroy
         flash[:notice] = "Post deleted!"
-        redirect_back fallback_location: @post.user
+        redirect_to @post.user
     end
 
     def show
