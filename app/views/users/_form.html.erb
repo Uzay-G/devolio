@@ -38,8 +38,10 @@ function readURL(input) {
   if (input.files && input.files[0]) {
       var reader = new FileReader();
       reader.onload = function (e) {
-        if ($("img.avatar").length > 0) {
-          $("img.avatar").attr("src", e.target.result)
+        let image_avatar = $("img.avatar");
+        if (image_avatar.length > 0) {
+          image_avatar.attr("src", e.target.result);
+          image_avatar.addClass("local-avatar")
         } else {
           $("svg.avatar").replaceWith(
             $("<img/>", {
