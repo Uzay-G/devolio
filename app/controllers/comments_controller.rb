@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :correct_author
-  before_action :get_comment
+  before_action :correct_author, except: [:create]
+  before_action :get_comment, except: [:create]
 
   def update
     respond_to do |format|
@@ -15,7 +15,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    if @comment.create(comment_params)
+    @comment = current_user.comments.build(comment_params)
+    if @comment.save
       flash[:success] = 'Your comment was successfully added!'
       redirect_to @comment.post
     else
@@ -43,6 +44,6 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:body, :user, :post)
+      params.require(:comment).permit(:body, :post)
     end
 end

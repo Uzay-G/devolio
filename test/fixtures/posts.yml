@@ -5,7 +5,6 @@ one:
   user: one
   title: MyString
   created_at: <%= 10.minutes.ago %>
-  user: arch
   url: MyString
 
 two:
@@ -13,7 +12,6 @@ two:
   user: two
   title: adad
   created_at: <%= 10.minutes.ago %>
-  user: one
   url: MyText
 
 most_recent:

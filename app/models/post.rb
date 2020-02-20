@@ -8,7 +8,8 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
   validates :title, presence: true
   default_scope -> { order(created_at: :desc) }
-
+  has_many :comments, dependent: :destroy
+  
   def to_param
     url # or whatever you set :url_attribute to
   end

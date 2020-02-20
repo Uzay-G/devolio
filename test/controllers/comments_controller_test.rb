@@ -8,7 +8,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get create" do
     assert_difference("Comment.count", 1) do
-      post comments_create_url, params: { post: posts(:one), user: users(:one), body: "This is a comment!"}
+      post comments_url, params: { comment: { post_id: Post.first.id, body: "This is a comment!"} }
     end
     assert_response :success
   end
@@ -16,7 +16,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   test "different user cannot update or delete someone else's comment" do
     comment = users(:arch).comments.first
 
-    patch post_path(post), params: { post: { title: "Agar", body: "I shouldn't be allowed to write this post"}}
+    patch comment_path(comment), params: { comment: { body: "I shouldn't be allowed to write this comment", post: comment.post}}
     patch comment_path(comment)
     assert_equal flash[:error], "You don't have the permissions to edit that comment."
     assert_redirected_to post_path(comment.post)
