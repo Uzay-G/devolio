@@ -8,19 +8,24 @@ class CommentsController < ApplicationController
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
       else
-        format.html { render @comment.post }
+        format.html { render :edit }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def create
-    @comment = current_user.comments.build(comment_params)
-    if @comment.save
-      flash[:success] = 'Your comment was successfully added!'
-      redirect_to @comment.post
-    else
-      render @comment.post
+    @comment = Post.find_by_url(params[:post_id]).comments.build(comment_params)
+    @comment.user_id = current_user.id
+    respond_to do |format|
+      if @comment.save
+        #flash[:notice] = 'Your comment was successfully added!'
+        #redirect_to @comment.post
+        format.js 
+      else
+        flash[:error] = @comment.errors.full_messages.join("/n")
+        redirect_to Post.find_by_url(params[:post_id])
+      end
     end
   end
 
@@ -44,6 +49,6 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:body, :post)
+      params.require(:comment).permit(:body)
     end
 end

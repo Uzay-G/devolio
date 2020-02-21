@@ -1,2 +1,2 @@
 $("#follow_form").html("<%= escape_javascript(render('relationships/unfollow', object: @followable)) %>");
-$("#followers").html('<%= pluralize(@followable.followers.count, "followers") %>');
+$("#followers").html('<%= escape_javascript(pluralize(@followable.followers.count, "followers")) %>');

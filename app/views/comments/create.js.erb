@@ -1,0 +1,2 @@
+$(".post-comments").append("<%= escape_javascript(render @comment) %>")
+$(".comment-count").text("<%= escape_javascript(pluralize(@comment.post.comments.size, "comments")) %>")

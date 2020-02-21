@@ -21,6 +21,12 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "should update post" do
+    post = users(:one).posts.first
+    patch "/posts/#{post.url}", params: { post: { body: "This post should be updated"} }
+    assert_equal Post.find(post.id).body, "This post should be updated"
+  end
+
   test "create and new post should be restricted to logged in user" do
     delete "/logout"
     assert_equal flash[:notice], "Logged out!"

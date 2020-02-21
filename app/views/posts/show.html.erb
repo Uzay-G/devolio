@@ -17,3 +17,9 @@
     <%= link_to "Edit", edit_post_path(@post.url), class: "btn-white" %>
   <% end %>
 </div>
+
+<div class="post-comments">
+<h3 class="comment-count"><%= pluralize(@post.comments.size, "comment") %></h3>
+<%= render "comments/form" %>
+
+<%= render @post.comments %>
