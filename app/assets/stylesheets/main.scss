@@ -477,18 +477,36 @@ li {
 }
 
 .post-comments {
-    width: 85%;
-    margin: auto;
+    width: 75%;
     .about-comment, .comment-body {
         padding: 10px 16px;
-        width: 70%;
-        margin: auto;
         color: #586069;
         border: 1px solid #d1d5da;
         border-top-left-radius: 3px;
         border-top-right-radius: 3px;
         p {
             margin: 0;
+        }
+    }
+
+    .comment-form {
+        margin: auto;
+        display: block;
+        background: rgba(14,36,57, 0.8);
+        border: none;
+        height: 170px;
+        padding: 20px;
+
+        #comment_body {
+            background: none;
+            border: none;
+            display: block;
+            width: 90%;
+            font-size: 18px;
+            color: white;
+            height: 75%;
+            font-family: "Open Sans";
+
         }
     }
 

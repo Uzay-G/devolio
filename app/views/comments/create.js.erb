@@ -1,2 +1,7 @@
 $(".post-comments").append("<%= escape_javascript(render @comment) %>")
 $(".comment-count").text("<%= escape_javascript(pluralize(@comment.post.comments.size, "comments")) %>")
+$("#comment-<%= @comment.id %>")[0].scrollIntoView({
+    behavior: "smooth", // or "auto" or "instant"
+    block: "start" // or "end"
+});
+$("#comment_body").val("")

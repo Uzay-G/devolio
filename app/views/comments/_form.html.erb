@@ -1,10 +1,7 @@
 <%= form_for([@post, @comment ], remote: true) do |f| %>
     <%= render "shared/error_messages", object: @comment %>
-      
-    <div class="form-group">
-      <%= f.label :body %>
-      <%= f.text_area :body, class: 'form-control' %>
+    <div class="comment-form">
+      <%= f.text_area :body, class: 'form-control', placeholder: "Enter a comment here!" %>
+      <%= f.submit "Comment", class: 'btn-white' %>
     </div>
-  
-    <%= f.submit class: 'btn btn-primary' %>
   <% end %>
