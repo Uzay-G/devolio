@@ -1,6 +1,9 @@
 <div class="comment-cont" id="comment-<%= comment.id %>">
   <div class="about-comment">
-  <p><%= link_to comment.user.username, comment.user, class:"author" %></p>  </div>
+    <p><%= link_to comment.user.username, comment.user, class:"author" %></p>  
+    <%= render "likes/like_form", object: comment %>
+  </div>
+
   <div class="comment-body">
     <p><%= comment.body %></p>
   </div>
