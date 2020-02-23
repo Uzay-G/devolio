@@ -14,7 +14,7 @@
     <div class="field">
       <%= form.file_field :avatar, style:"display: none" %>
       <div class="random">
-        <%= render "avatar" %>
+        <%= render "avatar", user: @user %>
         <p class="btn-white">Avatar</p>
       </div>
     </div>

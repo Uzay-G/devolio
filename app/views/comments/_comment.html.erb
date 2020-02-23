@@ -1,7 +1,7 @@
-<div class="well">
-  <p class="text-muted">Added by <strong><%= comment.user.username %></strong> on
-    <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
-  <blockquote>
+<div class="comment-cont">
+  <div class="about-comment">
+  <p><%= link_to comment.user.username, comment.user, class:"author" %></p>  </div>
+  <div class="comment-body">
     <p><%= comment.body %></p>
-  </blockquote>
+  </div>
 </div>

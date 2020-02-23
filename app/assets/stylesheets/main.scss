@@ -475,6 +475,30 @@ li {
         }
     }
 }
+
+.post-comments {
+    width: 85%;
+    margin: auto;
+    .about-comment, .comment-body {
+        padding: 10px 16px;
+        width: 70%;
+        margin: auto;
+        color: #586069;
+        border: 1px solid #d1d5da;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        p {
+            margin: 0;
+        }
+    }
+
+    .comment-cont {
+        margin: 20px 0px;
+    }
+    .about-comment {
+        background-color: #f6f8fa;
+    }
+}
 /* ipad */
 @media screen and (max-width: 850px) {
     #home-cont > * {
