@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   before_action :correct_author, except: [:create]
-  before_action :get_comment, except: [:create]
-
+  before_action :find_commentable
   def update
     respond_to do |format|
       if @comment.update(post_params)
@@ -15,7 +14,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Post.find_by_url(params[:post_id]).comments.build(comment_params)
+    @comment = @commentable.comments.build(comment_params)
+    
     @comment.user_id = current_user.id
     respond_to do |format|
       if @comment.save
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
         format.js 
       else
         flash[:error] = @comment.errors.full_messages.join("/n")
-        redirect_to Post.find_by_url(params[:post_id])
+        redirect_to @commentable
       end
     end
   end
@@ -35,10 +35,6 @@ class CommentsController < ApplicationController
     redirect_to @comment.post
   end
 
-  def get_comment
-    @comment = Comment.find(params[:id])
-  end
-
   def correct_author
     @comment = Comment.find(params[:id])
     unless @comment.user == current_user
@@ -47,8 +43,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  def find_commentable
+    # constantize turns the string into an actual object
+    commentable_class = params[:commentable_type].constantize
+    @commentable = commentable_class.find(params[:commentable_id])
+  end
+
   private
     def comment_params
-      params.require(:comment).permit(:body)
+      params.require(:comment).permit(:body, :commentable_id, :commentable_type)
     end
 end

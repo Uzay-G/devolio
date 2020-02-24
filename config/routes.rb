@@ -13,9 +13,9 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :posts do
-    resources :comments, except: [:new, :edit]
-  end
+  resources :posts
+  resources :comments, except: [:new, :edit]
+
 
   get '/login', to: 'user_sessions#new', :as => :login
   delete '/logout' => 'user_sessions#destroy', :as => :logout

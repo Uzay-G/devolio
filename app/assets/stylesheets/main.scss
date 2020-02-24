@@ -492,10 +492,13 @@ li {
     .comment-form {
         margin: auto;
         display: block;
-        background: rgba(14,36,57, 0.8);
-        border: none;
-        height: 170px;
-        padding: 20px;
+        background: #fafbfc;
+       /* background: rgba(14,36,57, 0.8);*/
+        border: 1px solid #d1d5da;
+        height: 130px;
+        padding: 10px;
+        margin: 10px 0px;
+
 
         #comment_body {
             background: none;
@@ -503,7 +506,7 @@ li {
             display: block;
             width: 90%;
             font-size: 18px;
-            color: white;
+            color: black;
             height: 75%;
             font-family: "Open Sans";
 
@@ -524,6 +527,15 @@ li {
             margin: 0;
         }
     }
+}
+
+.btn-simple {
+    font-family: "Open Sans", sans-serif;
+    color: #4d4646;
+    border: none;
+    font-weight: bold;
+    background: none;
+    font-size: 18px;
 }
 /* ipad */
 @media screen and (max-width: 850px) {

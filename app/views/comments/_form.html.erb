@@ -1,7 +1,8 @@
-<%= form_for([@post, @comment ], remote: true) do |f| %>
-    <%= render "shared/error_messages", object: @comment %>
+<%= form_for(commentable.comments.build, remote: true) do |f| %>
     <div class="comment-form">
+      <%= hidden_field_tag :commentable_id, commentable.id %>
+      <%= hidden_field_tag :commentable_type, commentable.class.name %>
       <%= f.text_area :body, class: 'form-control', placeholder: "Enter a comment here!" %>
-      <%= f.submit "Comment", class: 'btn-white' %>
+      <%= f.submit "Comment", class: 'btn-simple' %>
     </div>
   <% end %>

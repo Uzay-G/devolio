@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   include Likeable
+  include Commentable
   
   acts_as_url :title
 
@@ -8,7 +9,6 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
   validates :title, presence: true
   default_scope -> { order(created_at: :desc) }
-  has_many :comments, dependent: :destroy
   
   def to_param
     url # or whatever you set :url_attribute to
@@ -23,9 +23,6 @@ class Post < ApplicationRecord
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, fenced_code_blocks: true)
     ActionController::Base.helpers.sanitize(markdown.render(body))
   end
-
-
-
 
   include AlgoliaSearch
   algoliasearch do

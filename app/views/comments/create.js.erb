@@ -1,5 +1,10 @@
-$(".post-comments").append("<%= escape_javascript(render @comment) %>")
-$(".comment-count").text("<%= escape_javascript(pluralize(@comment.post.comments.size, "comments")) %>")
+<% if @comment.commentable_type == "Post" %>
+console.log("dsd")
+    $(".post-comments").append("<%= escape_javascript(render @comment) %>")
+<% else %>
+    $("#comment-<%= @comment.commentable_id %> .comment-body").append("<%= escape_javascript(render @comment) %>")
+<% end %>
+$(".comment-count").text("<%= escape_javascript(pluralize(@comment.commentable.comments.size, "comments")) %>")
 $("#comment-<%= @comment.id %>")[0].scrollIntoView({
     behavior: "smooth", // or "auto" or "instant"
     block: "start" // or "end"
