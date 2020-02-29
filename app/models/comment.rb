@@ -4,6 +4,6 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :commentable
 
-  include Commentable
+  include Commentabl
   validates_presence_of :body, :user, :commentable
 end

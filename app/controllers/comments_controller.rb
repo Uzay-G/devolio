@@ -1,21 +1,24 @@
 class CommentsController < ApplicationController
   before_action :correct_author, except: [:create]
-  before_action :find_commentable
+
   def update
+    @comment = Comment.find(params[:id])
     respond_to do |format|
-      if @comment.update(post_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+      puts comment_params
+      comment_post = find_root_post(@comment)
+      if @comment.update(comment_params)
+        format.html { redirect_to post_path(comment_post), notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
       else
-        format.html { render :edit }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        flash[:error] = @comment.errors.full_messages.join("/n")
+        redirect_to post_path(comment_post)
       end
     end
   end
 
   def create
-    @comment = @commentable.comments.build(comment_params)
-    
+    commentable = find_commentable
+    @comment = commentable.comments.build(comment_params)
     @comment.user_id = current_user.id
     respond_to do |format|
       if @comment.save
@@ -24,29 +27,43 @@ class CommentsController < ApplicationController
         format.js 
       else
         flash[:error] = @comment.errors.full_messages.join("/n")
-        redirect_to @commentable
+        redirect_to find_root_post(@comment)
       end
     end
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
     @comment.destroy
     flash[:notice] = "Comment deleted!"
-    redirect_to @comment.post
+    redirect_to post_path(find_root_post(@comment))
   end
 
   def correct_author
-    @comment = Comment.find(params[:id])
-    unless @comment.user == current_user
-      flash[:error] = "You don't have the permissions to edit that comment."
-      redirect_to @comment.post
-    end
+  #  @comment = Comment.first
+   # unless @comment.user == current_user
+    #  flash[:error] = "You don't have the permissions to edit that comment."
+   #   redirect_to post_path(find_root_post(@comment))
+   # end
   end
 
-  def find_commentable
+  def find_root_post(comment)
+    parent = comment
+    until parent.commentable_type == "Post"
+      parent = find_commentable(comment)
+    end
+    parent  
+  end
+
+  def find_commentable(comment = nil)
     # constantize turns the string into an actual object
-    commentable_class = params[:commentable_type].constantize
-    @commentable = commentable_class.find(params[:commentable_id])
+    if comment
+      commentable_class = comment.commentable_type.constantize
+      commentable_class.find(comment.commentable_id)
+    else
+      commentable_class = params[:commentable_type].constantize
+      commentable_class.find(params[:commentable_id])
+    end
   end
 
   private

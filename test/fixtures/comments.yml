@@ -3,9 +3,11 @@
 one:
   body: First comment
   user: one
-  post: one
+  commentable: one
+  commentable_type: Post
 
 two:
   body: I didn't like that comment
   user: arch
-  post: one
+  commentable: one
+  commentable_type: Comment

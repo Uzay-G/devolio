@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   include Likeable
-  include Commentable
+  include Commentabl
   
   acts_as_url :title
 
