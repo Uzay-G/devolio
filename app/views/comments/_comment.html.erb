@@ -2,14 +2,19 @@
   <div class="about-comment">
     <p><%= link_to comment.user.username, comment.user, class:"author" %></p>  
     <%= render "likes/like_form", object: comment %>
+    <% if comment.user == current_user || current_user&.role == "admin" %>
+      <%= link_to "Delete", comment, method: :delete, class: "btn-red", style: "padding: 3px; margin: 0 3px;"  %>
+      <!-- <button onclick="openEdit($('#comment-body-<%= comment.id %>'))">Edit</button> -->
+    <% end %>
   </div>
 
   <div class="comment-body">
-    <p><%= comment.body %></p>
+    <p id="comment-body-<%= comment.id %>"><%= comment.body %></p>
     <%= render comment.comments %>
     <div style="display: none;" id="comment-form-<%= comment.id %>">
     <%= render "comments/form", commentable: comment %>
     </div>
+    
   </div>
   <button onclick="revealform($('#comment-form-<%=comment.id %>'))">reply</button>
 
@@ -18,5 +23,9 @@
 <script>
 function revealform(element) {
   element[0].style.display = "block";
+}
+
+function openEdit(element) {
+  element.replaceWith("<%= escape_javascript(render "comments/edit_form", comment: comment) %>")
 }
 </script>

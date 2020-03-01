@@ -3,6 +3,7 @@
       <%= hidden_field_tag :commentable_id, commentable.id %>
       <%= hidden_field_tag :commentable_type, commentable.class.name %>
       <%= f.text_area :body, class: 'form-control', placeholder: "Enter a comment here!" %>
-      <%= f.submit "Comment", class: 'btn-simple' %>
+      <%= f.submit "Comment", class: 'btn-simple', onclick: (commentable.class.name == "Comment" ? "$('#comment-form-#{commentable.id}').hide()" : nil)
+      %>
     </div>
   <% end %>

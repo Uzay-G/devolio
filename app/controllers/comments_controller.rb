@@ -49,8 +49,8 @@ class CommentsController < ApplicationController
 
   def find_root_post(comment)
     parent = comment
-    until parent.commentable_type == "Post"
-      parent = find_commentable(comment)
+    until parent.class.name == "Post"
+      parent = find_commentable(parent)
     end
     parent  
   end

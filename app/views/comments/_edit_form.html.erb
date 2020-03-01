@@ -1,0 +1,6 @@
+<%= form_for(comment) do |f| %>
+  <div class="comment-form">
+    <%= f.text_area :body, class: 'form-control', placeholder: "Enter a comment here!" %>
+    <%= f.submit "Comment", class: 'btn-simple' %>
+  </div>
+<% end %>
