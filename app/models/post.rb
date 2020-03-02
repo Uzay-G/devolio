@@ -19,6 +19,10 @@ class Post < ApplicationRecord
     ActionController::Base.helpers.sanitize(processed_excerpt.truncate(350))
   end
 
+  def score
+    (likes.size + comments.size / 1.3) / ((Time.now.to_i - created_at.to_i) ** 1.4)
+  end
+
   def html_processed
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, fenced_code_blocks: true)
     ActionController::Base.helpers.sanitize(markdown.render(body))

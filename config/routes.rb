@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :comments, except: [:new, :edit]
 
+  get "/feed", to: "application#feed"
 
   get '/login', to: 'user_sessions#new', :as => :login
   delete '/logout' => 'user_sessions#destroy', :as => :logout

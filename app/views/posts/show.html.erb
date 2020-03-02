@@ -19,6 +19,5 @@
 </div>
 
 <div class="post-comments">
-<h3 class="comment-count"><%= pluralize(@post.comments.size, "comment") %></h3>
 <%= render "comments/form", commentable: @post %>
 <%= render @post.comments[0...-1] %>

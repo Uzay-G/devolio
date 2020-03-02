@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    before_action :require_login, except: [:home, :discuss]
+    before_action :require_login, except: [:home, :discuss, :feed]
     def home
         @user_zero = UserZero.new
     end
@@ -14,6 +14,13 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def feed
+       # unless current_user
+            puts "saa2"
+            @content = Post.all.sort_by { |post| post.score }
+            puts "saa"
+       # end
+    end
     
     private
         def not_authenticated

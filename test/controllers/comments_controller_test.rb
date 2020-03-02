@@ -22,7 +22,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
 
     delete "/comments/#{comment.id}"
     assert_equal flash[:error], "You don't have the permissions to edit that comment."
-    assert_redirected_to post_path(comment.post)
+    assert_redirected_to Post.find(comment.commentable_id)
   end
 
   # test "should update comment" do

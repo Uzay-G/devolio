@@ -40,11 +40,11 @@ class CommentsController < ApplicationController
   end
 
   def correct_author
-  #  @comment = Comment.first
-   # unless @comment.user == current_user
-    #  flash[:error] = "You don't have the permissions to edit that comment."
-   #   redirect_to post_path(find_root_post(@comment))
-   # end
+   @comment = Comment.first
+   unless @comment.user == current_user
+     flash[:error] = "You don't have the permissions to edit that comment."
+     redirect_to post_path(find_root_post(@comment))
+   end
   end
 
   def find_root_post(comment)
