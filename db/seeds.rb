@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # users
-99.times do |n|
+10.times do |n|
   name  = Faker::Name.name
   email = "halcyon#{n+1}@ethereal.org"
   password = "password"
@@ -21,12 +21,12 @@ end
 
 # posts
 users = User.order(:created_at).take(6)
-50.times do |i|
+10.times do |i|
   title = Faker::Lorem.sentence(word_count: 5)
   users.each { |user| user.posts.create!(body: Faker::Lorem.sentence(word_count: 5), title: title) }
 end
 
-50.times do |i|
+5.times do |i|
   name = Faker::Lorem.sentence(word_count: 7)
   users.each { |user| user.projects.create!(description: Faker::Lorem.sentence(word_count: 5), name: name, url: "https://www.devol.io") }
 end

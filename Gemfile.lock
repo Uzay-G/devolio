@@ -240,7 +240,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     stringex (2.8.5)
     thor (0.20.3)
     thread_safe (0.3.6)
@@ -303,7 +302,6 @@ DEPENDENCIES
   sorcery
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
   stringex
   turbolinks (~> 5)
   tzinfo-data
