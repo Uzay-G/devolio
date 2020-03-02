@@ -9,6 +9,9 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
   validates :title, presence: true
   default_scope -> { order(created_at: :desc) }
+
+  include SimpleRecommender::Recommendable
+  similar_by :likees
   
   def to_param
     url # or whatever you set :url_attribute to
@@ -28,11 +31,20 @@ class Post < ApplicationRecord
     ActionController::Base.helpers.sanitize(markdown.render(body))
   end
 
+  
+
+
+
   include AlgoliaSearch
-  algoliasearch do
+  algoliasearch index_name: "dev", id: :algolia_id do
     attributes :title, :body, :like_count
 
     searchableAttributes ['title', 'unordered(body)']
     customRanking ['desc(like_count)']
   end
+
+  private
+    def algolia_id
+      "post_#{id}"
+    end
 end

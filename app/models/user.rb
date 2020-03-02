@@ -43,11 +43,30 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  include AlgoliaSearch
-  algoliasearch do
-    attributes :username, :github, :like_count
+  def recommended?(post)
+    weight = 0
+    likes.where(likeable_type: "Post").each do |like|
+      weight += like.likeable.similarity(post)
+    end
+    weight / 1.2 
+  end
 
-    searchableAttributes ['username', 'github']
+  include AlgoliaSearch
+  algoliasearch index_name: "dev", id: :algolia_id do
+    attributes :title, :like_count
+
+    searchableAttributes ['title']
     customRanking ['desc(like_count)']
   end
+
+  def title
+    username
+  end
+
+
+  ## Define custom methods so that records can be indexed on same indice with algolia
+  private
+    def algolia_id
+      "user_#{id}"
+    end
 end

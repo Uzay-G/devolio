@@ -1,5 +1,19 @@
+
+<div class="ais-InstantSearch">
+    <div class="right-panel">
+        <div id="searchbox"></div>
+        <div style="display: none;" id="hits"></div>
+       <!-- <div id="pagination"></div> -->
+    </div>
+</div>
+
 <%= provide(:title, "Feed") %>
 <% for post in @content %>
-
-<h1><%= post.title %></h1>
+    <%= render post %>
 <% end %>
+
+	
+	
+
+
+<%= javascript_pack_tag "search" %>

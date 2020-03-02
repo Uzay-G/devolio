@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_154136) do
+ActiveRecord::Schema.define(version: 2020_03_02_184633) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "intarray"
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|

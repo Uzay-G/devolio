@@ -15,11 +15,11 @@ class ApplicationController < ActionController::Base
     end
 
     def feed
-       # unless current_user
-            puts "saa2"
+       unless current_user
             @content = Post.all.sort_by { |post| post.score }.reverse
-            puts "saa"
-       # end
+       else
+            @content = Post.all.sort_by { |post| post.score + current_user.recommended?(post)}.reverse
+       end
     end
     
     private
