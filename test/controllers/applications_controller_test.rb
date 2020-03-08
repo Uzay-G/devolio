@@ -5,4 +5,19 @@ class ApplicationsControllerTest < ActionDispatch::IntegrationTest
     get root_path
     assert_response :success
   end
+
+  test "should get discuss" do
+    get "/discuss"
+    assert_response :success
+  end
+
+  test "should get feed" do
+    get "/feed"
+    assert_response :success
+  end
+
+  test "should get search" do
+    get "/search"
+    assert_response :success
+  end
 end

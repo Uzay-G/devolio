@@ -368,6 +368,22 @@ blockquote {
 li {
     font-family: "Open Sans", sans-serif;
 }
+.ais-InstantSearch {
+    width: 80%;
+    margin: auto;
+    .ais-SearchBox-input {
+        margin: auto;
+        margin-top: 100px;
+        padding: 12px;
+        font-size: 20px;
+        background: #e1f4f3;
+        border: none;
+        width: 70%;
+        display: block;
+        
+    }
+}
+    
 .project {
     background: #282a36;
     width: 80%;

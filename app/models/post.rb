@@ -31,13 +31,15 @@ class Post < ApplicationRecord
     ActionController::Base.helpers.sanitize(markdown.render(body))
   end
 
-  
+  def relative_url 
+    "/posts/#{url}"
+  end
 
 
 
   include AlgoliaSearch
   algoliasearch index_name: "dev", id: :algolia_id do
-    attributes :title, :body, :like_count
+    attributes :title, :body, :like_count, :relative_url
 
     searchableAttributes ['title', 'unordered(body)']
     customRanking ['desc(like_count)']

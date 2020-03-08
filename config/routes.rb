@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   root "application#home"
   get "/discuss", to: "application#discuss"
   get  '/signup',  to: 'users#new'
+  get "/search", to: "application#search"
+  
   resources :user_zeros, only: [:new, :create]
   resources :relationships,       only: [:create, :destroy]
   resources :likes,       only: [:create, :destroy]

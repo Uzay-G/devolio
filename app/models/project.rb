@@ -12,7 +12,7 @@ class Project < ApplicationRecord
 
   include AlgoliaSearch
   algoliasearch index_name: "dev", id: :algolia_id do
-    attributes :title, :body, :like_count
+    attributes :title, :body, :like_count, :relative_url
 
     searchableAttributes ['name', 'unordered(body)']
     customRanking ['desc(like_count)']
@@ -21,6 +21,10 @@ class Project < ApplicationRecord
   ## Define custom methods so that records can be indexed on same indice with algolia
   def like_count
     follower_count
+  end
+
+  def relative_url 
+    "/projects/#{id}"
   end
 
   def title

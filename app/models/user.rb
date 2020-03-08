@@ -53,7 +53,7 @@ class User < ApplicationRecord
 
   include AlgoliaSearch
   algoliasearch index_name: "dev", id: :algolia_id do
-    attributes :title, :like_count
+    attributes :title, :like_count, :relative_url
 
     searchableAttributes ['title']
     customRanking ['desc(like_count)']
@@ -63,6 +63,9 @@ class User < ApplicationRecord
     username
   end
 
+  def relative_url 
+    "/users/#{id}"
+  end
 
   ## Define custom methods so that records can be indexed on same indice with algolia
   private

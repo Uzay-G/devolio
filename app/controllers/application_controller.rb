@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    before_action :require_login, except: [:home, :discuss, :feed]
+    before_action :require_login, except: [:home, :discuss, :feed, :search]
     def home
         @user_zero = UserZero.new
     end
@@ -21,7 +21,9 @@ class ApplicationController < ActionController::Base
             @content = Post.all.sort_by { |post| post.score + current_user.recommended?(post)}.reverse
        end
     end
-    
+
+    def search
+    end
     private
         def not_authenticated
             flash[:error] = "Please login first"

@@ -12,6 +12,9 @@ const search = instantsearch({
 search.addWidget(
   searchBox({
     container: '#searchbox',
+    placeholder: "Enter your search query...",
+    showSubmit: false,
+    showReset: false
   })
 );
 
@@ -20,11 +23,14 @@ search.addWidget(
     container: '#hits',
     templates: {
       item: `
-        <div>
-          <div class="hit-name">
-            {{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}
-          </div>
-        </div>
+
+        <h2>
+          {{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}
+        </h2>
+        <span class="post-content">
+          {{#helpers.highlight}}{ "attribute": "body" }{{/helpers.highlight}}
+            <a href='{{ relative_url }}' class='btn-white' style="display: block; margin: 10px 0px">See more</a>
+        </span>
       `,
     },
   })
