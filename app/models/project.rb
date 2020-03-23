@@ -5,7 +5,8 @@ class Project < ApplicationRecord
   has_one_attached :logo
   
   belongs_to :user
-
+  has_many :posts
+  
   validates :description, length: { maximum: 70 }
   validates :user_id, presence: true
   validates :url, format: { with: URI.regexp }, allow_blank: true

@@ -1,4 +1,3 @@
-<div class="post">
   <%= form_for(@post) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <div class="field">
@@ -8,9 +7,11 @@
       <div class="field">
         <%= f.file_field :images, multiple: true, direct_upload: true %>
       </div>
+      <% if @project %>
+        <%= hidden_field :project_id, @project.id %>
+      <% end %>
       <%= f.submit "Post", class: "btn-white" %>
   <% end %>
-</div>
 
 <script>
 window.onload = function() {

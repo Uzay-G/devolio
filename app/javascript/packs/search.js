@@ -1,6 +1,6 @@
 import algoliasearch from "algoliasearch/lite";
 import instantsearch from 'instantsearch.js';
-import { searchBox, hits, pagination } from 'instantsearch.js/es/widgets';
+import { searchBox, infiniteHits, pagination } from 'instantsearch.js/es/widgets';
 
 
 const search = instantsearch({
@@ -19,7 +19,7 @@ search.addWidget(
 );
 
 search.addWidget(
-  hits({
+  infiniteHits({
     container: '#hits',
     templates: {
       item: `

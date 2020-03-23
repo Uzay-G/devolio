@@ -17,7 +17,6 @@
     <%= link_to "Edit", edit_post_path(@post.url), class: "btn-white" %>
   <% end %>
 </div>
-
 <div class="post-comments">
 <%= render "comments/form", commentable: @post %>
 <%= render @post.comments[0...-1] %>

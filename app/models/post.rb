@@ -10,6 +10,8 @@ class Post < ApplicationRecord
   validates :title, presence: true
   default_scope -> { order(created_at: :desc) }
 
+  belongs_to :project, optional: true
+
   include SimpleRecommender::Recommendable
   similar_by :likees
   
