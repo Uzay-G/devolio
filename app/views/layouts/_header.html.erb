@@ -2,6 +2,7 @@
     <ul>
         <li class="left"><a href="<%= root_url %>"><%= image_tag "logo.png", alt: "logo", width: "150", class: "logo" %></a></li>
         <% if current_user %>
+            <li class="right"><%= link_to "", search_path, class: "links fas fa-search" %></li>
             <li class="right"><%= link_to "", new_post_path, class: "links fas fa-pencil-alt" %></li>
             <li class="right"><%= link_to "", user_path(current_user.id), class: "links fas fa-user-circle" %></li>
             <li class="right"><%= button_to 'Logout', "/logout?return_to=#{request.path}", method: :delete, class: "links" %></li>

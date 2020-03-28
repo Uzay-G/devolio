@@ -374,6 +374,13 @@ li {
 .ais-InstantSearch {
     width: 80%;
     margin: auto;
+    .ais-InfiniteHits--empty {
+        text-align: center;
+        font-family: "Raleway";
+        padding: 30px;
+        color: #c9485b;
+        font-size: 20px;
+    }
     .ais-SearchBox-input {
         margin: auto;
         margin-top: 100px;
@@ -390,8 +397,8 @@ li {
 .project {
     background: #282a36;
     width: 80%;
-    padding: 100px;
     margin: auto;
+    padding: 50px;
     color: white;
     .project-btns {
         display: flex;
@@ -401,22 +408,21 @@ li {
         }
     }
     .project-text {
-        width: 70%;
+        width: 80%;
+        margin: auto;
     }
     .project-info {
         display: flex;
         padding: 50px;
         justify-content: space-between;
-        width: 50%;
+        width: 80%;
         p {
             display: block;
         }
     }
 
     .project-mast {
-        display: flex;
         width: 100%;
-        justify-content: space-between;
     }
     .project-identicon {
         background: white;
@@ -444,6 +450,10 @@ li {
             color: #c9485b;
         }
     }
+}
+.project-logo-div {
+    float: right;
+    padding: 15px 0px;
 }
 .btn-red {
     background: #333333;
@@ -588,9 +598,41 @@ li {
     }
 }
 
+.home {
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+    .about-user {
+        a {
+            color: #c9485b;
+        }
+    }
+    .feed {
+    /* .post-content { max-width: 60%;}*/
+        .posts {
+            float: right;
+            width: 90%;
+        }
+        li {
+            list-style-type: none;
+
+        }
+    }
+}
 /* mobile */
 @media screen and (max-width: 550px) {
 
+    .ais-InstantSearch {
+        width: 90%;
+    }
+    .home {
+        flex-direction: column;
+    }
+    .about-user, .posts {
+        width: 80%;
+        padding: 20px;
+        margin: auto;
+    }
     .features {
         width: 100%;
         figure {
@@ -602,6 +644,16 @@ li {
             figcaption {
                 width: 100%;
             }
+        }
+    }
+    .project {
+        width: 100%;
+        padding: 30px 0px; 
+        .project-info {
+            flex-direction: column;
+        }
+        .project-identicon {
+            max-width: 100px;
         }
     }
     .user-cont {

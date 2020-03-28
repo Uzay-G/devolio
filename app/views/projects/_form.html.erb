@@ -26,3 +26,9 @@
 </div>
 
 <%= javascript_pack_tag "project-logo" %>
+<script>
+window.onload = function() {
+  let textarea = document.getElementById("project_description")
+  textarea.style.height = textarea.scrollHeight + "px"
+}
+</script>

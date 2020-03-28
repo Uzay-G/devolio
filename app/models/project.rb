@@ -7,7 +7,7 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many :posts
   
-  validates :description, length: { maximum: 70 }
+  validates :description, presence: true
   validates :user_id, presence: true
   validates :url, format: { with: URI.regexp }, allow_blank: true
 
@@ -36,6 +36,10 @@ class Project < ApplicationRecord
     description
   end
 
+  def html_processed
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, fenced_code_blocks: true)
+    ActionController::Base.helpers.sanitize(markdown.render(body))
+  end
   private
     def algolia_id
       "project_#{id}"

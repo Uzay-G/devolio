@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :comments, except: [:new, :edit]
 
-  get "/feed", to: "application#feed"
+  #get "/feed", to: "application#feed"
 
   get '/login', to: 'user_sessions#new', :as => :login
   delete '/logout' => 'user_sessions#destroy', :as => :logout
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get "/discuss", to: "application#discuss"
   get  '/signup',  to: 'users#new'
   get "/search", to: "application#search"
-  
+  get "/about", to: "application#about"
   resources :user_zeros, only: [:new, :create]
   resources :relationships,       only: [:create, :destroy]
   resources :likes,       only: [:create, :destroy]

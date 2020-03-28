@@ -2,10 +2,8 @@
 <div class="project">
   <div class="project-mast">
     <div class="project-info">
-      <%= render "logo" %>
-      <div class="project-text">
+      <div>
         <h1><%= link_to @project.name, @project.url, class: "white-link" %></h1>
-        <p><%= @project.description %></p>
         <div class="project-btns">
           <% if @project.source %>
             <a href="<%= @project.source %>" target="_blank" rel="noopener" class="fab fa-github"></a>
@@ -16,13 +14,17 @@
           <% end %>
         </div>
       </div>
-    </div>
+      <%= render "logo" %>
 
-    <ul class="project-tags">
-      <p><strong id="followers" class="btn-white"><%= pluralize(@project.followers.count, "followers") %></strong></p>
-    </ul>
+    </div>
+    <div class="project-text">
+      <p style="display: block;"><%= @project.html_processed %></p>
+    </div>
   </div>
+  <!--
   <div class="project-btns">
     <%= render 'relationships/follow_form', object: @project if current_user %>
   </div>
+  -->
 </div>
+

@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
     before_action :require_login, except: [:home, :discuss, :feed, :search]
     def home
-        @user_zero = UserZero.new
+        unless current_user
+            @content = Post.all.sort_by { |post| post.score }.reverse
+       else
+            @content = Post.all.sort_by { |post| post.score + current_user.recommended?(post)}.reverse
+       end
     end
 
     def discuss
@@ -12,14 +16,6 @@ class ApplicationController < ActionController::Base
             flash[:error] = "You must be logged out to access that page"
             redirect_back fallback_location: root_url
         end
-    end
-
-    def feed
-       unless current_user
-            @content = Post.all.sort_by { |post| post.score }.reverse
-       else
-            @content = Post.all.sort_by { |post| post.score + current_user.recommended?(post)}.reverse
-       end
     end
 
     def search
