@@ -2,6 +2,7 @@ default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: uzay
+  password:
   timeout: 5000
 
 development:
@@ -13,7 +14,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: devolio_test
+  database: travis_ci_test
+  username: postgres
 
 production:
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>

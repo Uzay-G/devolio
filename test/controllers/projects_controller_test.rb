@@ -19,7 +19,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   test "creating a project" do
     test_login_as(users(:one), "secret")
     assert_difference("Project.count", 1) do
-      post projects_path, params: { project: { name: "New proj", url: "https://awesomeproject.com" } }
+      post projects_path, params: { project: { name: "New proj", url: "https://awesomeproject.com", description: "aaa" } }
     end
     assert_redirected_to Project.find_by(name: "New proj")
     assert_equal 'Project was successfully created.', flash[:notice]

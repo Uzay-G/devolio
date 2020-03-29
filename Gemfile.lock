@@ -138,7 +138,7 @@ GEM
     mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.14.0)
+    minitest (5.13.0)
     minitest-reporters (1.4.2)
       ansi
       builder
@@ -291,7 +291,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   mail_form
-  minitest
+  minitest (= 5.13)
   minitest-reporters
   oauth2
   pg

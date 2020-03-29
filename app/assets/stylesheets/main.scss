@@ -566,6 +566,7 @@ li {
     background: none;
     font-size: 18px;
 }
+
 /* ipad */
 @media screen and (max-width: 850px) {
     #home-cont > * {
@@ -621,7 +622,15 @@ li {
 }
 /* mobile */
 @media screen and (max-width: 550px) {
-
+    .post {
+        margin: auto;
+        width: 85%;
+        padding: 20px;
+    }
+    .post-comments {
+        margin: auto;
+        width: 90%;
+    }
     .ais-InstantSearch {
         width: 90%;
     }

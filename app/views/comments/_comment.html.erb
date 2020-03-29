@@ -3,7 +3,7 @@
     <p><%= link_to comment.user.username, comment.user, class:"author" %></p>  
     <%= render "likes/like_form", object: comment %>
     <% if comment.user == current_user || current_user&.role == "admin" %>
-      <%= link_to "Delete", comment, method: :delete, class: "btn-red", style: "padding: 3px; margin: 0 3px;"  %>
+      <%= link_to "Delete", comment, method: :delete, class: "btn-red", style: "padding: 3px; margin: 0 3px; background: none"  %>
       <!-- <button onclick="openEdit($('#comment-body-<%= comment.id %>'))">Edit</button> -->
     <% end %>
   </div>
@@ -14,9 +14,9 @@
     <div style="display: none;" id="comment-form-<%= comment.id %>">
     <%= render "comments/form", commentable: comment %>
     </div>
-    
+    <button class="reply-btn" onclick="revealform($('#comment-form-<%=comment.id %>'))">Reply</button>
+
   </div>
-  <button onclick="revealform($('#comment-form-<%=comment.id %>'))">reply</button>
 
 </div>
 

@@ -11,8 +11,8 @@ class ApplicationsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get feed" do
-    get "/feed"
+  test "should get about" do
+    get "/about"
     assert_response :success
   end
 

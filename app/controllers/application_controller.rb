@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    before_action :require_login, except: [:home, :discuss, :feed, :search]
+    before_action :require_login, except: [:home, :discuss, :about, :search]
     def home
         unless current_user
             @content = Post.all.sort_by { |post| post.score }.reverse
@@ -9,6 +9,9 @@ class ApplicationController < ActionController::Base
     end
 
     def discuss
+    end
+
+    def about
     end
 
     def require_no_user

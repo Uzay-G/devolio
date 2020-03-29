@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2020_03_02_184633) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -48,9 +48,9 @@ ActiveRecord::Schema.define(version: 2020_03_02_184633) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "commentable_type", null: false
-    t.integer "commentable_id", null: false
+    t.bigint "commentable_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 2020_03_02_184633) do
 
   create_table "likes", force: :cascade do |t|
     t.string "likeable_type"
-    t.integer "likeable_id"
-    t.integer "user_id"
+    t.bigint "likeable_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_184633) do
 
   create_table "posts", force: :cascade do |t|
     t.text "body"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_184633) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "url"
     t.string "source"
     t.text "description"
@@ -91,9 +91,9 @@ ActiveRecord::Schema.define(version: 2020_03_02_184633) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id"
+    t.bigint "follower_id"
     t.string "followable_type"
-    t.integer "followable_id"
+    t.bigint "followable_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["followable_type", "followable_id"], name: "index_relationships_on_followable_type_and_followable_id"
