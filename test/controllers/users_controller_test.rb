@@ -7,11 +7,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     test_login_as(@user, "secret")
   end
 
-  test "should get index" do
-    get users_url
-    assert_response :success
-  end
-
   test "should get new" do
     delete "/logout"
     get new_user_url
