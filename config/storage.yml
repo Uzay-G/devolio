@@ -35,7 +35,7 @@ local:
 
 amazon:
   service: S3
-  access_key_id: ENV['AWS_ACCESS_KEY_ID']
-  secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+  access_key_id: <%= ENV["AWS_ACCESS_KEY_ID"] %>
+  secret_access_key: <%= ENV["AWS_SECRET_ACCESS_KEY"] %>
   bucket: "devolio-prod"
   region: "us-east-2" # e.g. 'us-east-1'
