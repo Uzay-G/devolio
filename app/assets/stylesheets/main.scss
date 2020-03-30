@@ -352,17 +352,17 @@ input::placeholder {
   }
 .like-btn {
     border: none;
-    width: 24px;
-    height: 22px;
     display: block;
-    margin: 20px 0px;
+    background: none;
 }
-.like-btn-blank {
-    background: image_url("like.svg");
+.post .like-btn {
+    color: white;
 }
-.like-btn-fill {
-    background: image_url("like-2.svg");
+.fa-chevron-up {
+    font-size: 25px;
 }
+
+
 blockquote {
 	padding: 0 1em;
 	color: #6a737d;
@@ -669,12 +669,12 @@ li {
         flex-direction: column;
         width: 100%;
         flex-wrap: wrap;
-
-        .posts {
-            margin: auto;
-            justify-items: center;
-        }
     }
+    .posts {
+        margin: auto;  
+    }
+    .home, .feed {width: 100%;}
+    .home .feed .posts { float: none;}
     .hidden {
         display: block;
         text-align: center;

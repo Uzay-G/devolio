@@ -4,9 +4,11 @@
         <%= f.text_field :title, placeholder: "Post Title" %>
         <%= f.text_area :body, placeholder: "Body Text", oninput:'this.style.height = "";this.style.height = this.scrollHeight + "px"' %>
       </div>
+      <!--
       <div class="field">
         <%= f.file_field :images, multiple: true, direct_upload: true %>
       </div>
+      -->
       <% if @project %>
         <%= hidden_field :project_id, @project.id %>
       <% end %>
@@ -18,6 +20,8 @@ window.onload = function() {
   let textarea = document.getElementById("post_body")
   textarea.style.height = textarea.scrollHeight + "px"
 }
+
+/*
 function readURL(input) {
   if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -39,5 +43,5 @@ addEventListener("direct-upload:end", event => {
     post_body.val(post_body.val() + "![alt text](<%= url_for(img) %>")
   <% end %>
 })
-
+*/
 </script>

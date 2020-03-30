@@ -2,6 +2,6 @@
 <%= form_for(object.likes.build, remote: true) do |f| %>
     <%= hidden_field_tag :likeable_id, object.id %>
     <%= hidden_field_tag :likeable_type, object.class.name %>
-    <%= f.submit "", class: "like-btn like-btn-blank" %>
+    <button type="submit" class="like-btn fas fa-chevron-up"></button>
 <% end %>
 </div>
