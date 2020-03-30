@@ -83,7 +83,7 @@ Rails.application.config.sorcery.configure do |config|
   config.external_providers = [:github]
   config.github.key = ENV["github_id"]
   config.github.secret = ENV["github_secret"]
-  config.github.callback_url = "http://localhost:3000/oauth/callback?provider=github"
+  config.github.callback_url = "https://www.devol.io/oauth/callback?provider=github"
   config.github.scope = "user"
   config.github.user_info_mapping = {:username => "name", :email => "email", :github => "name" }
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
