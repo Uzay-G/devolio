@@ -5,10 +5,12 @@
       <div>
         <h1><%= link_to @project.name, @project.url, class: "white-link" %></h1>
         <div class="project-btns">
-          <% if @project.source %>
+          <% if @project.source != "" %>
             <a href="<%= @project.source %>" target="_blank" rel="noopener" class="fab fa-github"></a>
           <% end %> 
-
+          <% if @project.url != "" %>
+            <a href="<%= @project.url %>" target="_blank" rel="noopener" class="fas fa-link"></a>
+          <% end %>
           <% if @project.user == current_user %>
           <a href="<%= edit_project_path(@project) %>"><%= image_tag "edit.svg" %></a>
           <% end %>

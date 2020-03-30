@@ -1,3 +1,4 @@
-<li>
-  <%= link_to user.username, user %>
+<li style="text-align: center;">
+  <%= render "avatar", user: user %>
+  <%= link_to user.username, user_path(user), style: "color: #c9485b; display: block" %>
 </li>

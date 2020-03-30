@@ -11,10 +11,10 @@
   </aside>
     <h3><%= @title %></h3>
     <% if @users.any? %>
-      <ul class="users follow">
+      <ul class="users follow" style="list-style: none;">
         <%= render @users %>
       </ul>
-      <%= will_paginate %>
+      <%= paginate @users%>
     <% end %>
   </div>
 </div>

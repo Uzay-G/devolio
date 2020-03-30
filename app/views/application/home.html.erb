@@ -1,11 +1,11 @@
-<%= provide(:title, "Feed") %>
+<%= provide(:title, "Home") %>
 <div class="home">
     <div class="about-user">
         <% if true %>
             <h2>Welcome to Devolio</h2>
             <p>A social community for coders</p>
             <p>I believe in igniting discussions and debates around the huge world of tech and programming.</p>
-            <p>If you have any feedback, please chat with me <a href="/discuss">here</a>. I'm still very much in the process of building out this website and making it awesome, so check out <a href="/about">the roadmap</a> if you're curious.</p>
+            <p>If you have any feedback, please chat with me <a href="/discuss">here</a>. I'm still very much in the process of building out this website and making it awesome, so check out <a href="/discuss">the features I'm planning on adding soon</a> if you're curious.</p>
             <p>Enjoy!</p>
         <% end %>
         
@@ -16,5 +16,6 @@
                 <%= render post %>
             <% end %>
         </div>
+        <%= paginate @content %>
     </div>
 </div>

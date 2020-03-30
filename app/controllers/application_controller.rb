@@ -1,18 +1,12 @@
 class ApplicationController < ActionController::Base
     before_action :require_login, except: [:home, :discuss, :about, :search]
     def home
-        unless current_user
-            @content = Post.all.sort_by { |post| post.score }.reverse
-       else
-            @content = Post.all.sort_by { |post| post.score + current_user.recommended?(post)}.reverse
-       end
+        @content = Kaminari.paginate_array(Post.all.sort_by { |post| post.score + (current_user&.recommended?(post)).to_f}.reverse).page(params[:page]).per(10)
     end
 
     def discuss
     end
 
-    def about
-    end
 
     def require_no_user
         if current_user

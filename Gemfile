@@ -9,7 +9,7 @@ gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'puma', '~> 4.1'
 gem 'faker'
 gem 'image_processing'
-gem 'will_paginate', '~> 3.1.0'
+gem 'kaminari'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker

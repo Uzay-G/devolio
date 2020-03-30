@@ -24,8 +24,7 @@ Rails.application.routes.draw do
   get "/discuss", to: "application#discuss"
   get  '/signup',  to: 'users#new'
   get "/search", to: "application#search"
-  get "/about", to: "application#about"
-  resources :user_zeros, only: [:new, :create]
+ # get "/about", to: "application#about"
   resources :relationships,       only: [:create, :destroy]
   resources :likes,       only: [:create, :destroy]
 

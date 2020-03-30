@@ -12,6 +12,6 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     assert_select 'title', "#{@user.username} | Devolio"
     assert_select 'h1', text: @user.username
     assert_match @user.posts.count.to_s, response.body
-    assert_select 'div.pagination'
+    assert_select 'nav.pagination'
   end
 end

@@ -78,6 +78,11 @@ h3 {
     }
 
 }
+.follow {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 a {
     text-decoration: none;
 }
@@ -177,7 +182,7 @@ a {
         color: #F34573
     }
 }
-.fa-github, .fa-edit {
+.fa-github, .fa-link, .fa-edit {
     font-size: 30px;
     color: #c9485b;
 }
@@ -353,6 +358,7 @@ input::placeholder {
 .like-btn {
     border: none;
     display: block;
+    margin: 20px 0px;
     background: none;
 }
 .post .like-btn {

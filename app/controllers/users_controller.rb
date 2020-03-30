@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.paginate(page: params[:page], per_page: 8)
+    @posts = @user.posts.page params[:page]
   end
 
   # GET /users/new
@@ -82,14 +82,14 @@ class UsersController < ApplicationController
   def following
     @title = "Following"
     @user  = User.find(params[:id])
-    @users = @user.following.paginate(page: params[:page])
+    @users = @user.following.page(params[:page]).per(40)
     render 'relationships/show_follow'
   end
 
   def followers
     @title = "Followers"
     @user  = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page])
+    @users = @user.followers.page(params[:page]).per(40)
     render 'relationships/show_follow'
   end
 
