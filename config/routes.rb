@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   get 'oauths/oauth'
   get 'oauths/callback'
-  get 'user_zeros/create'
   resources :user_sessions
   resources :contacts
   resources :projects
   
-  resources :users do
+  resources :users, except: :index do
     member do
       get :activate
       get :following, :followers
