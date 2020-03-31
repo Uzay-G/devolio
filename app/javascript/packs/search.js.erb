@@ -4,8 +4,8 @@ import { searchBox, infiniteHits, pagination } from 'instantsearch.js/es/widgets
 
 
 const search = instantsearch({
-  indexName: 'dev',
-  searchClient: algoliasearch('DDBD0ATDG9', '19016027dabb4420eb74f6cd7463e2c1'),
+    indexName: "<%= Rails.application.config.algolia_index %>",
+  searchClient: algoliasearch("<%= ENV['algolia_id'] %>", "<%= ENV['algolia_search'] %>")
 });
 
 

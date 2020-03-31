@@ -12,7 +12,7 @@ class Project < ApplicationRecord
   validates :url, format: { with: URI.regexp }, allow_blank: true
 
   include AlgoliaSearch
-  algoliasearch index_name: "dev", id: :algolia_id do
+  algoliasearch index_name: Rails.application.config.algolia_index, id: :algolia_id do
     attributes :title, :body, :like_count, :relative_url
 
     searchableAttributes ['name', 'unordered(body)']

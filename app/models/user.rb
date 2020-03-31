@@ -52,7 +52,7 @@ class User < ApplicationRecord
   end
 
   include AlgoliaSearch
-  algoliasearch index_name: "dev", id: :algolia_id do
+  algoliasearch index_name: Rails.application.config.algolia_index, id: :algolia_id do
     attributes :title, :like_count, :relative_url
 
     searchableAttributes ['title']
