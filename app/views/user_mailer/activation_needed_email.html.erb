@@ -1,5 +1,5 @@
 Welcome to Devolio <%= @user.username %>!
 
-To login to the site, just follow this <%= link_to "link", "/users/#{@user.activation_token}/activate" %>.
+To login to the site, just follow this <%= link_to "link", "#{root_url}users/#{@user.activation_token}/activate" %>.
 
 Thanks for joining and have a great day!

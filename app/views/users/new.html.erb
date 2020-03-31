@@ -1,7 +1,10 @@
 <%= provide(:title, "Sign Up") %>
 <div class="user_info">
 <h1>New User</h1>
+<p>Sign up through Github</p>
 <%= render "shared/oauth" %>
+
+<p>Or through the site</p>
 <%= render 'form', user: @user %>
 
 <%= link_to 'Back', users_path %>
