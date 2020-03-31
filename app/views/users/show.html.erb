@@ -27,6 +27,9 @@
       <%= render @posts %>
     </ul>
     <%= paginate @posts %>
+  <% else %>
+    <p>This user hasn't posted anything yet</p>
+    <%= image_tag "empty.svg", width: "300" %>
   <% end %>
 </div>
 </div>
