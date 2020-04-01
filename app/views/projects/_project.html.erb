@@ -5,7 +5,7 @@
         <h1><%= link_to project.name, project.url, class: "white-link" %></h1>
         <div class="project-btns">
           <% if project.source != "" %>
-            <a href="<%= @project.source %>" target="_blank" rel="noopener" class="fab fa-github"></a>
+            <a href="<%= project.source %>" target="_blank" rel="noopener" class="fab fa-github"></a>
           <% end %> 
           <% if project.url != "" %>
             <a href="<%= project.url %>" target="_blank" rel="noopener" class="fas fa-link"></a>
