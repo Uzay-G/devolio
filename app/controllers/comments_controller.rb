@@ -20,13 +20,10 @@ class CommentsController < ApplicationController
     commentable = find_commentable
     @comment = commentable.comments.build(comment_params)
     @comment.user_id = current_user.id
-    saved = false
-    if @comment.save
-      NotificationsMailer.reply_to(current_user, @comment)
-      saved = true
-    end
+
     respond_to do |format|
-      if saved
+      if @comment.save
+        NotificationsMailer.reply_to(@comment.commentable.user, @comment).deliver
         format.js 
       else
         flash[:error] = @comment.errors.full_messages.join("/n")
