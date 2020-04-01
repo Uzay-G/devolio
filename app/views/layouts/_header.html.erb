@@ -5,10 +5,10 @@
             <li class="right"><%= link_to "", search_path, class: "links fas fa-search" %></li>
             <li class="right"><%= link_to "", new_post_path, class: "links fas fa-pencil-alt" %></li>
             <li class="right"><%= link_to "", user_path(current_user.id), class: "links fas fa-user-circle" %></li>
-            <li class="right logout"><%= button_to 'Logout', "/logout?return_to=#{request.path}", method: :delete, class: "links", id: "log" %></li>
+            <li class="right logout"><%= button_to 'Logout', "/logout?return_to=#{request.path}", method: :delete, class: "links" %></li>
         <% else %>
-            <li class="signup-btn right"><%= link_to "Sign up", new_user_path, class: "links" %></li>
-            <li class="right"><%= link_to "Login", "/login?return_to=#{request.path}", class: "links", id: "log" %></li>
+            <li class="signup-btn right"><%= link_to "Sign up", new_user_path, class: "links", id: "signup" %></li>
+            <li class="right"><%= link_to "Login", "/login?return_to=#{request.path}", class: "links" %></li>
         <% end %>
     </ul>
 </nav>

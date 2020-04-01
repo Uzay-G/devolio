@@ -50,8 +50,11 @@ nav {
         color: black;
         font-size: 18px;
     }
-    #log {
+    .links:not(#signup) {
         color: black !important;
+    }
+    #signup {
+        color: white !important;
     }
     .links { 
         &:visited { color: inherit !important }
@@ -194,7 +197,10 @@ a {
 }
 footer {
     background: rgb(245, 248, 251);
-    padding: 10px 0px 10px 0px
+    padding: 10px 0px 10px 0px;
+    textarea {
+        font-family: "Open Sans";
+    }
 }
 #contact input[type=submit] {
     background: #24232d;
