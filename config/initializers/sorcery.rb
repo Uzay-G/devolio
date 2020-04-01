@@ -84,8 +84,8 @@ Rails.application.config.sorcery.configure do |config|
   config.github.key = ENV["github_id"]
   config.github.secret = ENV["github_secret"]
   config.github.callback_url = "https://www.devol.io/oauth/callback?provider=github"
-  config.github.scope = "read:user%20user:email"
-  config.github.user_info_mapping = {:username => "name", :email => "email", :github => "name" }
+  config.github.scope = "user"
+  config.github.user_info_mapping = {:username => "login", :email => "email", :github => "login" }
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
   # Path to ca_file. By default use a internal ca-bundle.crt.
   # Default: `'path/to/ca_file'`
