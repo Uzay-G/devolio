@@ -1,0 +1,9 @@
+<strong><%= @comment.user.username %></strong> replied to you on this post:
+<% if @comment.commentable.class.name == "Post" %>
+    <p><%= @comment.commentable.excerpt %></p>
+<% else %>
+    <p><%= @comment.commentable.body %></p>
+<% end %>
+
+<p>Check out their reply <%= link_to "here.", "#{post_url(@comment.root_post)}#comment-#{@comment.id}" %></p>
+</div>

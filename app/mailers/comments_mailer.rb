@@ -1,2 +1,0 @@
-class CommentsMailer < ApplicationMailer
-end

@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     respond_to do |format|
       puts comment_params
-      comment_post = find_root_post(@comment)
+      comment_post = @comment.root_post
       if @comment.update(comment_params)
         format.html { redirect_to post_path(comment_post), notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
@@ -20,14 +20,17 @@ class CommentsController < ApplicationController
     commentable = find_commentable
     @comment = commentable.comments.build(comment_params)
     @comment.user_id = current_user.id
+    saved = false
+    if @comment.save
+      NotificationsMailer.reply_to(current_user, @comment)
+      saved = true
+    end
     respond_to do |format|
-      if @comment.save
-        #flash[:notice] = 'Your comment was successfully added!'
-        #redirect_to @comment.post
+      if saved
         format.js 
       else
         flash[:error] = @comment.errors.full_messages.join("/n")
-        redirect_to find_root_post(@comment)
+        redirect_to @comment.root_post
       end
     end
   end
@@ -36,23 +39,15 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     flash[:notice] = "Comment deleted!"
-    redirect_to post_path(find_root_post(@comment))
+    redirect_to post_path(@comment.root_post)
   end
 
   def correct_author
    @comment = Comment.first
    unless @comment.user == current_user
      flash[:error] = "You don't have the permissions to edit that comment."
-     redirect_to post_path(find_root_post(@comment))
+     redirect_to post_path(@comment.root_post)
    end
-  end
-
-  def find_root_post(comment)
-    parent = comment
-    until parent.class.name == "Post"
-      parent = find_commentable(parent)
-    end
-    parent  
   end
 
   def find_commentable(comment = nil)

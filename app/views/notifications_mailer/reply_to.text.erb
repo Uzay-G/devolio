@@ -1,0 +1,8 @@
+<%= @comment.user.username %></strong> replied to you on this post:
+<% if @comment.commentable.class.name == "Post" %>
+    <%= @comment.commentable.excerpt %>
+<% else %>
+    <%= @comment.commentable.body %>
+<% end %>
+
+Check out their reply here: <%= "#{post_url(@comment.root_post)}#comment-#{@comment.id}" %>
