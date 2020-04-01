@@ -11,7 +11,8 @@
             <a href="<%= project.url %>" target="_blank" rel="noopener" class="fas fa-link"></a>
           <% end %>
           <% if project.user == current_user %>
-          <a href="<%= edit_project_path(project) %>"><%= image_tag "edit.svg" %></a>
+            <a href="<%= edit_project_path(project) %>"><%= image_tag "edit.svg" %></a>
+            <%= button_to "Delete", project, method: :delete, class: "btn-red"  %>
           <% end %>
         </div>
       </div>
