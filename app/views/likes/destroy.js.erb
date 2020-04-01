@@ -1,1 +1,5 @@
 $("#like_form-<%= @likeable.class %>-<%= @likeable.id %>").html("<%= escape_javascript(render "likes/like", object: @likeable) %>")
+<% if @likeable.class.name == "Post" %>
+    console.log("sss");
+    $("#like_count-<%= @likeable.id %>").html("<%= pluralize(@likeable.likes.size - 1, "like") %>");
+<% end %>

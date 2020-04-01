@@ -1,1 +1,4 @@
 $("#like_form-<%= @likeable.class %>-<%= @likeable.id %>").html("<%= escape_javascript(render "likes/unlike", object: @likeable) %>")
+<% if @likeable.class.name == "Post" %>
+    $("#like_count-<%= @likeable.id %>").html("<%= pluralize(@likeable.likes.size, "like") %>");
+<% end %>
