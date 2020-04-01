@@ -50,8 +50,11 @@ nav {
         color: black;
         font-size: 18px;
     }
+    #log {
+        color: black !important;
+    }
     .links { 
-        &:visited { color: inherit !important}
+        &:visited { color: inherit !important }
     }
 }
 .signup-btn {
