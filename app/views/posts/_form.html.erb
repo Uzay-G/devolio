@@ -1,19 +1,27 @@
-  <%= form_for(@post) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-      <div class="field">
-        <%= f.text_field :title, placeholder: "Post Title" %>
-        <%= f.text_area :body, placeholder: "Body Text", oninput:'this.style.height = "";this.style.height = this.scrollHeight + "px"' %>
-      </div>
-      <!--
-      <div class="field">
-        <%= f.file_field :images, multiple: true, direct_upload: true %>
-      </div>
-      -->
-      <% if @project %>
-        <%= hidden_field :project_id, @project.id %>
-      <% end %>
-      <%= f.submit "Post", class: "btn-white" %>
-  <% end %>
+<%= form_for(@post) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="content_types">
+      <button type="button" class="fas fa-newspaper" id="selected"><span>Post</span></button>
+      <button type="button" class="fas fa-image"><span>Image</span></button>
+      <button type="button" class="fas fa-link"><span>Link</span></button>
+    </div>
+    <div class="field">
+      <%= f.text_field :title, placeholder: "Post Title" %>
+      <%= f.text_area :body, placeholder: "Body Text (supports markdown)", oninput:'this.style.height = "";this.style.height = this.scrollHeight + "px"', class: "main-inp" %>
+    </div>
+    <!--
+    <div class="field">
+      <%= f.file_field :images, multiple: true, direct_upload: true %>
+    </div>
+    -->
+    <%= hidden_field :post, :content_type %>
+
+
+    <% if @project %>
+      <%= hidden_field :project_id, @project.id %>
+    <% end %>
+    <%= f.submit "Post", class: "btn-white" %>
+<% end %>
 
 <script>
 window.onload = function() {
@@ -45,3 +53,4 @@ addEventListener("direct-upload:end", event => {
 })
 */
 </script>
+<%= javascript_pack_tag "post-types" %>

@@ -7,6 +7,7 @@ class PostsController < ApplicationController
         @post = current_user.posts.build(post_params)
         respond_to do |format|
           if @post.save
+            @post.like(current_user)
             format.html { redirect_to @post, notice: 'Post was successfully created.' }
             format.json { render :show, status: :ok, location: @post }
           else
@@ -59,6 +60,6 @@ class PostsController < ApplicationController
 
     private
         def post_params
-            params.require(:post).permit(:title, :body, :project, :images => [])
+            params.require(:post).permit(:title, :body, :project, :content_type, :images => [])
         end
 end

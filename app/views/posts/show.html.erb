@@ -10,6 +10,10 @@
   <span class="post-content">
     <%= @post.html_processed %>
   </span>
+  <% if @post.user == current_user || current_user&.role == "admin" %>
+    <%= button_to "Delete", @post, method: :delete, class: "btn-red"  %>
+  <% end %>
+  <br>
   <% if @post.user == current_user %>
     <%= link_to "Edit", edit_post_path(@post.url), class: "btn-white" %>
   <% end %>

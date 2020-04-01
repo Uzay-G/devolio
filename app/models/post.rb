@@ -28,6 +28,13 @@ class Post < ApplicationRecord
     (likes.size + comments.size / 1.3) / ((Time.now.to_i - created_at.to_i) ** 1.4)
   end
 
+  def domain
+    if content_type == "link"
+      URI.parse(body).host
+    else
+      nil
+    end
+  end
   def html_processed
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, fenced_code_blocks: true)
     ActionController::Base.helpers.sanitize(markdown.render(body))

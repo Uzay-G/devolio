@@ -182,7 +182,7 @@ a {
         color: #F34573
     }
 }
-.fa-github, .fa-link, .fa-edit {
+.fa-github {
     font-size: 30px;
     color: #c9485b;
 }
@@ -351,7 +351,7 @@ input::placeholder {
       color: gray;
       display: block;
     }
-    h2 a {
+    h2, h2 a {
         color: #c9485b; 
     }
   }
@@ -406,6 +406,10 @@ li {
     margin: auto;
     padding: 50px;
     color: white;
+    .fa-link, .fa-edit {
+        font-size: 30px;
+        color: #c9485b;
+    }
     .project-btns {
         display: flex;
         align-items: center;
@@ -475,6 +479,19 @@ li {
     }
 }
 .post {
+    .content_types button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 25px;
+        span {
+            font-family: "Raleway";
+            padding: 0px 5px;
+        }
+    }
+    #selected {
+        color: #c9485b;
+    }
     background: #282a36;
     color: white;
     padding: 30px;
@@ -491,22 +508,27 @@ li {
             font-size: 25px;
             color: white;
             font-family: "Raleway", sans-serif;
-            margin: 5px;
+            margin: 10px;
+            padding: 5px;
         }
         input[type='submit'] {
             width: initial;
             font-size: 23px;
         }
-        #post_title, textarea {
+        #post_title, #post_body, #post_url {
             width: 90%;
             border: none;
             background: inherit;
-            margin: 10px;
-            padding: 5px;
+
         }
-        textarea {
+        #post_body {
             min-height: 200px;
+        }
+        textarea, #post_url {
             color: #9be3de;
+            font-size: 13px;
+            margin: 0px 16px;
+            padding: 0;
         }
     }
 }

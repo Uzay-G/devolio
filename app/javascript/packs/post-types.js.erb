@@ -1,0 +1,50 @@
+let image_button = $(".content_types .fa-image");
+let post_button = $(".content_types .fa-newspaper");
+let link_button = $(".content_types .fa-link");
+let content_input = $("#post_content_type");
+
+image_button.click(function() {
+    let post_body = $("#post_body");
+    let post_content = $(".main-inp").val();
+    if (post_button.attr("id") == "selected") {
+        post_button.attr("id", "");
+    }
+    else if (link_button.attr("id") == "selected") {
+        link_button.attr("id", "");
+    }
+    image_button.attr("id", "selected");
+    content_input.val("image");
+    post_body.replaceWith("<div id='post_body' style='height:" + post_body.height() + "px'><input class='main-inp' value='" + post_content + "' type='url' name='post[body]' id='post_url' placeholder='Image URL'></div>");
+})
+
+link_button.click(function() {
+    let post_body = $("#post_body");
+    let post_content = $(".main-inp").val();
+    if (post_button.attr("id") == "selected") {
+        post_button.attr("id", "");
+    }
+    else if (image_button.attr("id") == "selected") {
+        image_button.attr("id", "");
+    }
+    link_button.attr("id", "selected");
+    content_input.val("link")
+    post_body.replaceWith("<div id='post_body' style='height:" + post_body.height() + "px'><input class='main-inp' value='" + post_content + "' type='url' name='post[body]' id='post_url' placeholder='Link'></div>");
+})
+
+post_button.click(function() {
+    let post_body = $("#post_body");
+    let post_content = $(".main-inp").val();
+    if (image_button.attr("id") == "selected") {
+        image_button.attr("id", "");
+    }
+    else if (link_button.attr("id") == "selected") {
+        link_button.attr("id", "");
+    }
+    post_button.attr("id", "selected");
+    content_input.val("article");
+    console.log(post_content);
+    let link = $("#post_body");
+    if (link.length != 0) {
+        link.replaceWith("<textarea style='height:" + post_body.height() + "px' id='post_body' class='main-inp' name='post[body]' placeholder='Body Text (supports markdown)' oninput='this.style.height = '';this.style.height = this.scrollHeight + 'px''>" + post_content + "</textarea>");
+    }
+})

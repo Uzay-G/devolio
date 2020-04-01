@@ -1,17 +1,38 @@
 <li id="post-<%= post.id %>">
-  <h2><%= link_to post.title, post_path(post) %></h2>
-  <span class="post-content">
-    <%= post.excerpt.html_safe %>
+  <% if post.content_type == "article" %>
+    <h2><%= link_to post.title, post_path(post) %></h2>
+    <span class="post-content">
+      <%= post.excerpt.html_safe %>
+      <br>
+      <% if post.body.length > 150 %>
+        <a href='/posts/<%= post.url %>' class='btn-white' style="display: inline-block; margin: 10px 0px">See more</a>
+      <% end %>
+      <% if post.user == current_user || current_user&.role == "admin" %>
+        <%= button_to "Delete", post, method: :delete, class: "btn-red"  %>
+      <% end %>
+      <br>
+      <p class="timestamp">
+      Posted <%= time_ago_in_words(post.created_at) %> ago.
+      </p>
+    </span>
+  <% elsif post.content_type == "image" %>
+    <h2><%= link_to post.title, post_path(post) %></h2>
+    <img src="<%= post.body %>">
     <br>
-    <% if post.body.length > 150 %>
-      <a href='/posts/<%= post.url %>' class='btn-white' style="display: inline-block; margin: 10px 0px">See more</a>
-    <% end %>
-    <% if post.user == current_user || current_user&.role == "admin" %>
-      <%= button_to "Delete", post, method: :delete, class: "btn-red"  %>
-    <% end %>
+    <a href='/posts/<%= post.url %>' class='btn-white' style="display: inline-block; margin: 10px 0px">Discuss</a>
     <br>
     <p class="timestamp">
     Posted <%= time_ago_in_words(post.created_at) %> ago.
     </p>
-  </span>
+  <% elsif post.content_type == "link" %>
+    <h2><%= link_to post.title, post.body %> <i class="fas fa-link"></i></h2>
+    <span class="post-content">
+      <small style="display: block;"><%= post.domain %></small>
+      <a href='/posts/<%= post.url %>' class='btn-white' style="display: inline-block; margin: 10px 0px">Discuss</a>
+      <br>
+      <p class="timestamp">
+      Posted <%= time_ago_in_words(post.created_at) %> ago.
+      </p>
+    </span>
+  <% end %>
 </li>
