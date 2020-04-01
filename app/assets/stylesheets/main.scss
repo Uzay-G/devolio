@@ -195,12 +195,19 @@ a {
 #contact_message {
     height: 84px;
 }
+.reply-btn {
+    border: none;
+    color: #522d5b;
+    background: none;
+    padding: 5px 0px;
+    font-size: 16px;
+}
 footer {
     background: rgb(245, 248, 251);
     padding: 10px 0px 10px 0px;
     textarea {
         font-family: "Open Sans";
-    }
+  }
 }
 #contact input[type=submit] {
     background: #24232d;

@@ -1,7 +1,11 @@
 class ProjectsController < ApplicationController
     before_action :require_login, except: [:show]
     before_action :correct_author, only: [:update, :edit, :destroy]
-    before_action :get_post, except: [:create, :new]
+    before_action :get_post, except: [:create, :new, :index]
+
+    def index
+      @projects = Kaminari.paginate_array(Project.all.sort_by { |project| project.created_at }).page(params[:page]).per(6)
+    end
 
     def create
         @project = current_user.projects.build(project_params)

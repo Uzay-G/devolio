@@ -1,9 +1,9 @@
 <div class="project-logo-div">
-<% if @project.logo.attached? %>
-  <%= image_tag @project.logo, alt: "project-logo", width: "100", height: "100" %>
+<% if project.logo.attached? %>
+  <%= image_tag project.logo, alt: "project-logo", width: "100", height: "100" %>
 <% else %>
   <div class="project-identicon">
-    <% identicon = @project.new_record? ? "#{current_user.username}-project-#{current_user.projects.count}" : "#{@project.user.username}-project-#{@project.user.projects.index(@project)}" %>
+    <% identicon = project.new_record? ? "#{current_user.username}-project-#{current_user.projects.count}" : "#{project.user.username}-project-#{project.user.projects.index(project)}" %>
     <svg data-jdenticon-value="<%= identicon %>" width="100" height="100"></svg>
   </div>
 <% end %>
