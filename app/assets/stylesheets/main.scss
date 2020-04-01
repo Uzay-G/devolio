@@ -328,13 +328,14 @@ input::placeholder {
     }
     img {
         margin: auto;
+        max-width: 90%;
     }
     p {
         margin: 0px;
     }
+    
     .post-content {
       display: block;
-      max-width: 90%;
       background: #282a36;
       color: white;
       padding: 20px;
@@ -489,6 +490,9 @@ li {
             padding: 0px 5px;
         }
     }
+    img {
+        max-width: 90%;
+    }
     #selected {
         color: #c9485b;
     }
@@ -638,6 +642,7 @@ li {
     }
     .feed {
     /* .post-content { max-width: 60%;}*/
+    width: 50%;
         .posts {
             float: right;
             width: 90%;
@@ -701,7 +706,7 @@ li {
     .posts {
         margin: auto;  
     }
-    .home, .feed {width: 100%;}
+    .home .feed {width: 100%; max-width: 100%}
     .home .feed .posts { float: none;}
     .hidden {
         display: block;

@@ -36,8 +36,12 @@ class Post < ApplicationRecord
     end
   end
   def html_processed
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, fenced_code_blocks: true)
-    ActionController::Base.helpers.sanitize(markdown.render(body))
+    if content_type == "image"
+      ActionController::Base.helpers.sanitize("<img src='#{body}'>")
+    else
+      markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, fenced_code_blocks: true)
+      ActionController::Base.helpers.sanitize(markdown.render(body))
+    end
   end
 
   def relative_url 
