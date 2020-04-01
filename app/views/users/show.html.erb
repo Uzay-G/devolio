@@ -21,6 +21,7 @@
 </div>
 <div class="posts">
   <%= render "avatar", user: @user %>
+  <br>
   <% if @user.posts.any? %>
     <h3>Posts (<%= @user.posts.count %>)</h3>
     <ul>
