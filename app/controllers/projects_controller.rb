@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-    before_action :require_login, except: [:show]
+    before_action :require_login, except: [:show, :index]
     before_action :correct_author, only: [:update, :edit, :destroy]
     before_action :get_post, except: [:create, :new, :index]
 
