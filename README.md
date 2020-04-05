@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Devolio is a social network for developers I built as a hobby in January and March 2020. It taught me a lot about complex Rails  infrastructures, building clean interfaces with Javascript, and how to use Active Storage to allow image uploads.
 
-Things you may want to cover:
+Features:
 
-* Ruby version
+- Followers, Posts, Projects, Comments and Likes
+- Image uploads through an AWS S3 bucket
+- Markdown rendering for the posts
+- Search Frontend with Algolia
+- Recommendation Algorithm to gather content that will interest users.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+It's really hard to gather a community, but hopefully we can code one together!
