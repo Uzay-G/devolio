@@ -70,7 +70,7 @@ Rails.application.configure do
     :address => "smtp.mailgun.org",
     :port => 587,
     :user_name => "postmaster@mg.devol.io",
-    :password => "a66227ccd708c5913f812a2867775b82-a9919d1f-b0713542"
+    :password => ENV["mailgun_secret"]
   }
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).

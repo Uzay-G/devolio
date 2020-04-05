@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        NotificationsMailer.reply_to(@comment.commentable.user, @comment).deliver
+        NotificationsMailer.reply_to(@comment.commentable.user, @comment).deliver if @comment.commentable.user != current_user
         format.js 
       else
         flash[:error] = @comment.errors.full_messages.join("/n")
