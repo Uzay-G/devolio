@@ -31,11 +31,9 @@ class Post < ApplicationRecord
   def domain
     if content_type == "link"
       URI.parse(body).host
-    else
-      nil
     end
   end
-  
+
   def html_processed
     if content_type == "image"
       ActionController::Base.helpers.sanitize("<img src='#{body}'>")
