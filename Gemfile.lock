@@ -174,7 +174,7 @@ GEM
       rack (>= 1.2, < 3)
     pg (1.2.2)
     public_suffix (4.0.3)
-    puma (4.3.1)
+    puma (4.3.3)
       nio4r (~> 2.0)
     rack (2.2.2)
     rack-proxy (0.6.5)
@@ -307,7 +307,7 @@ DEPENDENCIES
   minitest-reporters
   oauth2
   pg
-  puma (~> 4.1)
+  puma (~> 4.3)
   rails (~> 6.0.2, >= 6.0.2.1)
   redcarpet
   sanitize
