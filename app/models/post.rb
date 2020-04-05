@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   include Likeable
-  include Commentabl
+  include Commentable
   
   acts_as_url :title
 
@@ -35,6 +35,7 @@ class Post < ApplicationRecord
       nil
     end
   end
+  
   def html_processed
     if content_type == "image"
       ActionController::Base.helpers.sanitize("<img src='#{body}'>")

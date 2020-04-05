@@ -1,10 +1,12 @@
 class Comment < ApplicationRecord
   include Likeable
+  include Commentable
 
   belongs_to :user
   belongs_to :commentable
-  include Commentabl
 
+  validates_presence_of :body, :user, :commentable
+  
   def root_post
     parent = self
     until parent.class.name == "Post"
@@ -16,5 +18,4 @@ class Comment < ApplicationRecord
   def commentable
     commentable_type.constantize.find(commentable_id)
   end
-  validates_presence_of :body, :user, :commentable
 end

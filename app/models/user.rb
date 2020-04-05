@@ -51,14 +51,6 @@ class User < ApplicationRecord
     weight / 1.2 
   end
 
-  include AlgoliaSearch
-  algoliasearch index_name: Rails.application.config.algolia_index, id: :algolia_id do
-    attributes :title, :like_count, :relative_url
-
-    searchableAttributes ['title']
-    customRanking ['desc(like_count)']
-  end
-
   def title
     username
   end
@@ -67,6 +59,14 @@ class User < ApplicationRecord
     "/users/#{id}"
   end
 
+  include AlgoliaSearch
+  algoliasearch index_name: Rails.application.config.algolia_index, id: :algolia_id do
+    attributes :title, :like_count, :relative_url
+
+    searchableAttributes ['title']
+    customRanking ['desc(like_count)']
+  end
+  
   ## Define custom methods so that records can be indexed on same indice with algolia
   private
     def algolia_id

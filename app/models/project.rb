@@ -11,13 +11,6 @@ class Project < ApplicationRecord
   validates :user_id, presence: true
   validates :url, format: { with: URI.regexp }, allow_blank: true
 
-  include AlgoliaSearch
-  algoliasearch index_name: Rails.application.config.algolia_index, id: :algolia_id do
-    attributes :title, :body, :like_count, :relative_url
-
-    searchableAttributes ['name', 'unordered(body)']
-    customRanking ['desc(like_count)']
-  end
   
   ## Define custom methods so that records can be indexed on same indice with algolia
   def like_count
@@ -40,6 +33,15 @@ class Project < ApplicationRecord
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, fenced_code_blocks: true)
     ActionController::Base.helpers.sanitize(markdown.render(body))
   end
+
+  include AlgoliaSearch
+  algoliasearch index_name: Rails.application.config.algolia_index, id: :algolia_id do
+    attributes :title, :body, :like_count, :relative_url
+
+    searchableAttributes ['name', 'unordered(body)']
+    customRanking ['desc(like_count)']
+  end
+  
   private
     def algolia_id
       "project_#{id}"
