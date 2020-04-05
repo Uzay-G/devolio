@@ -9,5 +9,6 @@ Features:
 - Markdown rendering for the posts
 - Search Frontend with Algolia
 - Recommendation Algorithm to gather content that will interest users.
+- Automated Travis builds for testing
 
 It's really hard to gather a community, but hopefully we can code one together!
