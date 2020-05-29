@@ -8,7 +8,7 @@
     "@rails/webpacker": "4.2.2",
     "algoliasearch": "^4.0.3",
     "instantsearch.js": "^4.3.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "kind-of": "^6.0.3",
     "minimist": "^1.2.3",
     "rails-erb-loader": "^5.5.2",
