@@ -1,6 +1,10 @@
-# README
+# Devolio
 
 Devolio is a social network for developers I built as a hobby in January and March 2020. It taught me a lot about complex Rails  infrastructures, building clean interfaces with Javascript, and how to use Active Storage to allow image uploads.
+
+### Demo
+
+![](https://www.uzpg.me/assets/images/devolio.gif)
 
 Features:
 
